@@ -1,0 +1,59 @@
+{
+    "signup":{
+      "1":"Sign up"
+    },
+    "login":{
+      "1":"Log in"
+    },
+    "or":{
+      "1":"or"
+    },
+    "welcome":{
+      "1":"Welcome"
+    },
+    "newAccount":{
+      "1":"Create New Account"
+    },
+    "username":{
+      "1":"Username"
+    },
+    "email":{
+      "1":"Email"
+    },
+    "password":{
+      "1":"Password"
+    },
+    "confirmPass":{
+      "1":"Confirm Password"
+    },
+    "forgotPass":{
+      "1":"Forgot Password ?"
+    },
+    "usernameErr":{
+      "1":"Characters 4 to 24"
+    },
+    "mailErr":{
+      "1":"Invalid Email"
+    },
+    "passErr":{
+      "1":"Characters 8 to 24"
+    },
+    "identical":{
+      "1":"Must match the first password input field"
+    },
+    "loginErr":{
+      "1":"Incorrect email or password"
+    },
+    "createAccount":{
+      "1":"Sign up"
+    },
+    "haveAccount":{
+      "1":"Do you have an account ?"
+    },
+    "resetPass":{
+      "1":"Reset Password"
+    },
+    "sendCode":{
+      "1":"Send Code"
+    }
+  }
