@@ -66,7 +66,7 @@ const Register = (props) => {
     }
     return(
   <>
-  <img
+      <img
         src={imag}
         className=" fixed hidden lg:block h-full top-0 left-0 -z-50"
         style={{width: '570px'}}
@@ -75,7 +75,7 @@ const Register = (props) => {
       <div
         className="w-full h-screen flex justify-around items-center rtl:flex-row-reverse"
       >
-        <div className="hidden lg:block w-50 text-center">
+        <div className="hidden md:ml-20 md:block w-50 text-center">
         <img
             src={img}
             className="mx-auto"
@@ -91,12 +91,12 @@ const Register = (props) => {
               >
                 {props.t("newAccount.1")}
               </h2>
-              <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg">
+              <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
                 <FontAwesomeIcon icon={faUser} className="text-xl w-100 text-green-950"/>
                 <input
                   type="text"
                   placeholder={props.t("username.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12  caret-green-950"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400"
                   ref={userRef}
                   autoComplete="off"
                   onChange={(e) => setUser(e.target.value)}
@@ -111,12 +111,12 @@ const Register = (props) => {
               <p  id="userErr" className={`${userFocus && user && !validName ? "text-red-500" : "hidden"} mt-2 ltr:text-left rtl:text-right w-full`}>
                 {props.t("usernameErr.1")}
               </p>
-              <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg">
+              <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
                 <FontAwesomeIcon icon={faEnvelope} className="text-xl w-100 text-green-950"/>
                 <input
                   type="email"
                   placeholder={props.t("email.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400"
                   autoComplete="off"
                   onChange={(e) => setMail(e.target.value)}
                   value={mail}
@@ -130,13 +130,13 @@ const Register = (props) => {
               <p  id="mail" className={`${mailFocus && mail && !validMail ? "text-red-500" : "hidden"} mt-2 ltr:text-left rtl:text-right w-full`}>
                 {props.t("mailErr.1")}
               </p>
-              <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg">
+              <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
               <FontAwesomeIcon icon={faLock} className="text-xl w-100 text-green-950"/>
                 {/* <img src={lock} className="inline-block" alt=''/> */}
                 <input
                   type="password"
                   placeholder={props.t("password.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400"
                   onChange={(e) => setPwd(e.target.value)}
                   value={pwd}
                   required
@@ -149,12 +149,12 @@ const Register = (props) => {
               <p id="pwdErr" className={`${pwd && pwdFocus && !validPwd ?  "text-red-500" : "hidden"} ltr:text-left mt-2 rtl:text-right w-full`}>
                 {props.t("passErr.1")}
               </p>
-              <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg">
+              <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
               <FontAwesomeIcon icon={faLock} className="text-xl w-100 text-green-950"/>
                 <input
                   type="password"
                   placeholder={props.t("confirmPass.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400"
                   onChange={(e) => setMatchPwd(e.target.value)}
                   value={matchPwd}
                   required
@@ -168,9 +168,9 @@ const Register = (props) => {
                   {props.t("identical.1")}
               </p>
               <button type="submit" disabled={!validName || !validMail || !validPwd || !validMatch ? true : false}
-                className="py-3 px-20 rounded-full text-white font-bold w-full text-center mt-10 transform hover:translate-y-1 transition-all duration-500 cursor-pointer disabled:opacity-50 disabled:pointer-events-none bg-green-950 text-3xl">{props.t("signup.1")}
+                className="py-3 px-20 rounded-full text-white font-bold w-full text-center mt-10 transform hover:translate-y-1 transition-all duration-500 cursor-pointer disabled:opacity-50 disabled:pointer-events-none bg-green-950 text-xl xl:text-3xl">{props.t("signup.1")}
               </button>
-              <div className='lg mt-5' >{props.t("haveAccount.1")} <span className='cursor-pointer text-green-950' onClick={()=>navigate("/Login",{replace:true})}>{props.t("login.1")}</span></div>
+              <div className='lg mt-5 dark:text-white' >{props.t("haveAccount.1")}&nbsp; <span className='cursor-pointer text-green-950' onClick={()=>navigate("/Login",{replace:true})}>{props.t("login.1")}</span></div>
             </form>
         </div>
       </div>

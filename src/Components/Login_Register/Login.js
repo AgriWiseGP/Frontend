@@ -45,7 +45,7 @@ const Login = (props) => {
       <div
         className="w-full h-screen flex justify-around items-center rtl:flex-row-reverse"
       >
-        <div className="hidden lg:block w-50 text-center">
+        <div className="hidden md:ml-20 md:block w-50 text-center">
         <img
             src={img}
             className="mx-auto"
@@ -69,12 +69,12 @@ const Login = (props) => {
                 </span>
               </div>
               </div>
-              <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg">
+              <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
                 <FontAwesomeIcon icon={faEnvelope} className="text-lg w-100 text-green-950"/>
                 <input
                   type="email"
                   placeholder={props.t("email.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400"
                   autoComplete="off"
                   onChange={(e) => setMail(e.target.value)}
                   value={mail}
@@ -82,25 +82,25 @@ const Login = (props) => {
                   required
                 />
               </div>
-              <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg">
+              <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
               <FontAwesomeIcon icon={faLock} className="text-xl w-100 text-green-950"/>
                 {/* <img src={lock} className="inline-block" alt=''/> */}
                 <input
                   type="password"
                   placeholder={props.t("password.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400"
                   onChange={(e) => setPwd(e.target.value)}
                   value={pwd}
                   required
                 />
               </div>
-              <p className= 'mt-2 ltr:text-left rtl:text-right w-full cursor-pointer' onClick={()=>navigate("/ResetPass",{replace:true})}>
+              <p className= 'mt-2 ltr:text-left rtl:text-right w-full cursor-pointer dark:text-white' onClick={()=>navigate("/ResetPass",{replace:true})}>
                 {props.t("forgotPass.1")}
               </p>
               <button type="submit" 
                 className="py-3 px-20 text-lg rounded-full text-white font-bold w-full text-center mt-10 transform hover:translate-y-1 transition-all duration-500 cursor-pointer bg-green-950 xl:text-2xl">{props.t("login.1")}
               </button>
-              <div className='text-lg mt-5' >{props.t("don'tHaveAccount.1")} <span className='cursor-pointer text-green-950' onClick={()=>navigate("/Register",{replace:true})}>{props.t("createAccount.1")}</span></div>
+              <div className='text-lg mt-5 dark:text-white'>{props.t("don'tHaveAccount.1")}&nbsp;<span className='cursor-pointer text-green-950' onClick={()=>navigate("/Register",{replace:true})}>{props.t("createAccount.1")}</span></div>
             </form>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import imag from '../../images/wavy.png'
-import img from '../../images/farmer.svg'
+import img from '../../images/Farmer-amico.svg'
 import { useNavigate } from 'react-router-dom'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
@@ -10,12 +10,12 @@ const LoginOrRegister = (props) => {
     <>
       <img
         src={imag}
-        className=" fixed hidden lg:block h-full top-0 left-0 -z-50"
+        className=" fixed hidden lg:block h-screen top-0 left-0 -z-50"
         style={{ width: '570px' }}
         alt=""
       />
       <div className="w-full h-screen flex justify-around items-center rtl:flex-row-reverse">
-        <div className="hidden md:block w-50 text-center">
+        <div className="hidden md:block w-50 text-center lg:ml-20">
           <img
             src={img}
             className="mx-auto"
@@ -23,19 +23,19 @@ const LoginOrRegister = (props) => {
             alt=""
           />
         </div>
-        <div className="w-full text-center p-10 lg:p-0 lg:w-500">
+        <div className="w-full text-center p-10 lg:p-0 md:w-500">
           {/* <img src="Assets/avatar.svg" className="w-32" /> */}
-          <h2 className="my-8 font-display font-bold text-3xl text-green-950 text-center">
+          <h2 className="my-8 font-display font-bold text-3xl dark:text-white text-center">
             AgriWise
           </h2>
           <div
-            className="shadow-lg cursor-pointer py-3 px-20 rounded-full text-white font-bold w-full text-center mt-10 transform transition-all duration-500 bg-green-950 text-xl xl:text-3xl"
+            className="shadow-lg cursor-pointer py-3 px-20 rounded-full text-white font-bold w-full text-center mt-10 transform transition-all duration-500 bg-green-950 text-xl xl:text-3xl dark:text-gray-700"
             onClick={() => navigate('/Login', { replace: true })}
           >
             {props.t('login.1')}
           </div>
           <div
-            className="shadow-lg cursor-pointer py-3 px-20 rounded-full text-green-950 font-bold w-full text-center mt-5 transform transition-all duration-500 bg-gray-100 text-xl xl:text-3xl"
+            className="shadow-lg cursor-pointer py-3 px-20 rounded-full text-green-950 font-bold w-full text-center mt-5 transform transition-all duration-500 bg-gray-100 text-xl xl:text-3xl dark:bg-gray-700"
             onClick={() => navigate('/Register', { replace: true })}
           >
             {props.t('signup.1')}

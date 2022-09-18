@@ -7,6 +7,7 @@ const Toggler = () => {
       window.localStorage.setItem("dark", JSON.stringify(dark))
       let ourTheme = dark ? "dark"  : "light"
       let themeToggler = ourTheme === 'light' ? 'dark' : 'light'
+      document.body.style.backgroundColor= dark ? "#111827" : "white";
       document.documentElement.classList.remove(themeToggler)
       document.documentElement.classList.add(ourTheme)
     },[dark])

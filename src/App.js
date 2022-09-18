@@ -37,7 +37,7 @@ const App = () => {
   const navigate= useNavigate();
 
   return (
-    <div className="App font-noto dark:bg-black">
+    <div className="App rtl:font-noto">
       <img
         src={myLang === 'ar' ? eg : us}
         alt=""
