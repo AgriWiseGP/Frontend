@@ -13,7 +13,7 @@ const Toggler = () => {
     },[dark])
 
     return (
-    <span className="absolute left-20 top-2">
+    <span className="fixed right-12 top-2">
       <label
         htmlFor="green-toggle"
         className="inline-flex relative items-center mr-5 cursor-pointer"

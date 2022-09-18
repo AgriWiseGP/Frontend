@@ -51,7 +51,7 @@ const ResetPass = (props) => {
               <input
                 type="email"
                 placeholder={props.t('email.1')}
-                className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400"
+                className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                 autoComplete="off"
                 onChange={(e) => setMail(e.target.value)}
                 value={mail}

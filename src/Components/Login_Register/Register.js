@@ -5,9 +5,11 @@ import imag from "../../images/wavy.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser,faLock,faEnvelope} from '@fortawesome/free-solid-svg-icons' 
 import { useNavigate } from 'react-router-dom';
+import GoBack from '../GoBack';
 
-const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const USER_REGEX = /^[A-z][A-z0-9-_]{3,24}$/;
+// const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const PWD_REGEX = /^[A-z][A-z0-9-_]{8,24}$/;
 const Mail_REGEX = /^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/;
 
 const Register = (props) => {
@@ -96,7 +98,7 @@ const Register = (props) => {
                 <input
                   type="text"
                   placeholder={props.t("username.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   ref={userRef}
                   autoComplete="off"
                   onChange={(e) => setUser(e.target.value)}
@@ -116,7 +118,7 @@ const Register = (props) => {
                 <input
                   type="email"
                   placeholder={props.t("email.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   autoComplete="off"
                   onChange={(e) => setMail(e.target.value)}
                   value={mail}
@@ -136,7 +138,7 @@ const Register = (props) => {
                 <input
                   type="password"
                   placeholder={props.t("password.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   onChange={(e) => setPwd(e.target.value)}
                   value={pwd}
                   required
@@ -154,7 +156,7 @@ const Register = (props) => {
                 <input
                   type="password"
                   placeholder={props.t("confirmPass.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   onChange={(e) => setMatchPwd(e.target.value)}
                   value={matchPwd}
                   required

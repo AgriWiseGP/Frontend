@@ -58,5 +58,8 @@
     },
     "sendCode":{
       "1":"Send Code"
+    },
+    "back":{
+      "1": "Go back"
     }
   }
