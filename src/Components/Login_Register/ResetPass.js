@@ -26,7 +26,7 @@ const ResetPass = (props) => {
         alt=""
       />
       <div className="w-full h-screen flex justify-around items-center rtl:flex-row-reverse">
-        <div className="hidden lg:block w-50 text-center">
+        <div className="hidden md:block w-50 text-center">
           <img
             src={img}
             className="mx-auto"
@@ -34,7 +34,7 @@ const ResetPass = (props) => {
             alt=""
           />
         </div>
-        <div className="w-full text-center p-10 lg:p-0 lg:w-500">
+        <div className="w-full text-center lg:w-500">
           <form
             onSubmit={handleSubmit}
             className="p-10 lg:p-0 lg:flex flex-col justify-center items-center mx-auto w-full lg:w-500 lg:h-600"
@@ -51,7 +51,7 @@ const ResetPass = (props) => {
               <input
                 type="email"
                 placeholder={props.t('email.1')}
-                className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12"
+                className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950"
                 autoComplete="off"
                 onChange={(e) => setMail(e.target.value)}
                 value={mail}

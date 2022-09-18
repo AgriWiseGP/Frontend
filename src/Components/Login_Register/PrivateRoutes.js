@@ -5,7 +5,7 @@ export let auth={'token': false};
 
 const PrivateRoutes=()=> {
   return (
-    auth.token ? <Outlet/> : <Navigate to="/Login"/>
+    auth.token ? <Outlet/> : <Navigate to="/LoginOrRegister"/>
   )
 }
 

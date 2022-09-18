@@ -50,6 +50,9 @@
     "haveAccount":{
       "1":"Do you have an account ?"
     },
+    "don'tHaveAccount":{
+      "1":"Don't have an account ?"
+    },
     "resetPass":{
       "1":"Reset Password"
     },

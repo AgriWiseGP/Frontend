@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import img from '../../images/login.svg';
 import imag from "../../images/wavy.png";
 // import lock from '../../images/padlock.png'
@@ -70,11 +70,11 @@ const Login = (props) => {
               </div>
               </div>
               <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg">
-                <FontAwesomeIcon icon={faEnvelope} className="text-xl w-100 text-green-950"/>
+                <FontAwesomeIcon icon={faEnvelope} className="text-lg w-100 text-green-950"/>
                 <input
                   type="email"
                   placeholder={props.t("email.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950"
                   autoComplete="off"
                   onChange={(e) => setMail(e.target.value)}
                   value={mail}
@@ -88,7 +88,7 @@ const Login = (props) => {
                 <input
                   type="password"
                   placeholder={props.t("password.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950"
                   onChange={(e) => setPwd(e.target.value)}
                   value={pwd}
                   required
@@ -98,8 +98,9 @@ const Login = (props) => {
                 {props.t("forgotPass.1")}
               </p>
               <button type="submit" 
-                className="py-3 px-20 rounded-full text-white font-bold w-full text-center mt-10 transform hover:translate-y-1 transition-all duration-500 cursor-pointer bg-green-950 text-3xl">{props.t("login.1")}
+                className="py-3 px-20 text-lg rounded-full text-white font-bold w-full text-center mt-10 transform hover:translate-y-1 transition-all duration-500 cursor-pointer bg-green-950 xl:text-2xl">{props.t("login.1")}
               </button>
+              <div className='text-lg mt-5' >{props.t("don'tHaveAccount.1")} <span className='cursor-pointer text-green-950' onClick={()=>navigate("/Register",{replace:true})}>{props.t("createAccount.1")}</span></div>
             </form>
         </div>
       </div>

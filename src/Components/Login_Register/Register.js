@@ -4,15 +4,16 @@ import imag from "../../images/wavy.png";
 // import lock from '../../images/padlock.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser,faLock,faEnvelope} from '@fortawesome/free-solid-svg-icons' 
+import { useNavigate } from 'react-router-dom';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const Mail_REGEX = /^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/;
 
 const Register = (props) => {
-  const userRef = useRef();
+    const userRef = useRef();
     // const errRef = useRef();
-
+    const navigate = useNavigate();
     const [user, setUser] = useState('');
     const [validName, setValidName] = useState(false);
     const [userFocus, setUserFocus] = useState(false);
@@ -95,7 +96,7 @@ const Register = (props) => {
                 <input
                   type="text"
                   placeholder={props.t("username.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12  caret-green-950"
                   ref={userRef}
                   autoComplete="off"
                   onChange={(e) => setUser(e.target.value)}
@@ -115,7 +116,7 @@ const Register = (props) => {
                 <input
                   type="email"
                   placeholder={props.t("email.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950"
                   autoComplete="off"
                   onChange={(e) => setMail(e.target.value)}
                   value={mail}
@@ -135,7 +136,7 @@ const Register = (props) => {
                 <input
                   type="password"
                   placeholder={props.t("password.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950"
                   onChange={(e) => setPwd(e.target.value)}
                   value={pwd}
                   required
@@ -153,7 +154,7 @@ const Register = (props) => {
                 <input
                   type="password"
                   placeholder={props.t("confirmPass.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950"
                   onChange={(e) => setMatchPwd(e.target.value)}
                   value={matchPwd}
                   required
@@ -169,6 +170,7 @@ const Register = (props) => {
               <button type="submit" disabled={!validName || !validMail || !validPwd || !validMatch ? true : false}
                 className="py-3 px-20 rounded-full text-white font-bold w-full text-center mt-10 transform hover:translate-y-1 transition-all duration-500 cursor-pointer disabled:opacity-50 disabled:pointer-events-none bg-green-950 text-3xl">{props.t("signup.1")}
               </button>
+              <div className='lg mt-5' >{props.t("haveAccount.1")} <span className='cursor-pointer text-green-950' onClick={()=>navigate("/Login",{replace:true})}>{props.t("login.1")}</span></div>
             </form>
         </div>
       </div>
