@@ -67,16 +67,17 @@ const Register = (props) => {
       }
     }
     return(
-  <>
+  <div>
       <img
         src={imag}
         className=" fixed hidden lg:block h-full top-0 left-0 -z-50"
         style={{width: '570px'}}
         alt=''
       />
-      <div
-        className="w-full h-screen flex justify-around items-center rtl:flex-row-reverse"
-      >
+      <div className="h-screen flex flex-col">
+      <GoBack/>
+      <div className="grow w-full flex justify-around items-center rtl:flex-row-reverse">
+
         <div className="hidden md:ml-20 md:block w-50 text-center">
         <img
             src={img}
@@ -176,7 +177,8 @@ const Register = (props) => {
             </form>
         </div>
       </div>
-  </>
+      </div>
+  </div>
   ) 
   }
 export default Register;

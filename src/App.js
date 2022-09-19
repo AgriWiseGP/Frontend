@@ -38,14 +38,14 @@ const App = () => {
       <img
         src={myLang === 'ar' ? eg : us}
         alt=""
-        className="fixed right-2 top-3 inline-block w-7 cursor-pointer"
+        className="absolute right-2 top-3 inline-block w-7 cursor-pointer"
         onClick={() => {
           myLang === 'ar' ? handleClick('en') : handleClick('ar')
         }}
-      />
-      {/* <Languages handleClick={handleClick} lang={myLang}/> */}
+      /> 
       <Toggler/>
-      <GoBack t={t}/>
+      {/* <Languages handleClick={handleClick} lang={myLang}/> */}
+      {/* <GoBack t={t}/> */}
         <Routes>
           <Route element={<PrivateRoutes />}>
             <Route path="/" element={<Home t={t} lang={myLang} />} exact />

@@ -1,6 +1,6 @@
 import React from 'react'
 import imag from '../../images/wavy.png'
-import img from '../../images/Farmer-amico.svg'
+import img from '../../images/farmer.svg'
 import { useNavigate } from 'react-router-dom'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faFacebookF } from '@fortawesome/free-brands-svg-icons';

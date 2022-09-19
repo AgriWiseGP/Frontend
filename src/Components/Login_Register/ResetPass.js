@@ -3,6 +3,7 @@ import imag from '../../images/wavy.png'
 import img from '../../images/reset.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons' 
+import GoBack from '../GoBack'
 
 const ResetPass = (props) => {
 
@@ -25,7 +26,9 @@ const ResetPass = (props) => {
         style={{ width: '570px' }}
         alt=""
       />
-      <div className="w-full h-screen flex justify-around items-center rtl:flex-row-reverse">
+      <div className="h-screen flex flex-col">
+      <GoBack/>
+      <div className="grow w-full h-600 flex justify-around items-center rtl:flex-row-reverse">
         <div className="hidden md:block w-50 text-center md:ml-20">
           <img
             src={img}
@@ -40,7 +43,7 @@ const ResetPass = (props) => {
             className="p-10 lg:p-0 lg:flex flex-col justify-center items-center mx-auto w-full md:w-500 lg:h-600"
           >
             {/* <img src="Assets/avatar.svg" className="w-32" /> */}
-            <h2 className="my-8 font-display font-bold text-3xl text-green-950 text-center">
+            <h2 className="mb-8 font-display font-bold text-3xl text-green-950 text-center">
                 {props.t('resetPass.1')}
             </h2>
             <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
@@ -67,6 +70,7 @@ const ResetPass = (props) => {
             </button>
           </form>
         </div>
+      </div>
       </div>
     </>
   )
