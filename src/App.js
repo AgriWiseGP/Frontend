@@ -9,7 +9,6 @@ import Register from './Components/Login_Register/Register'
 import ResetPass from './Components/Login_Register/ResetPass'
 import Home from './Components/Home/Home'
 import NotFound from './Components/NotFound'
-import GoBack from './Components/GoBack'
 
 // import Languages from './Components/Languages';
 import eg from './images/eg.svg'
@@ -18,7 +17,7 @@ import Toggler from './Components/Toggler'
 
 const App = () => {
   const { t, i18n } = useTranslation()
-  let myLang = window.localStorage.getItem('i18nextLng')
+  let myLang = window.localStorage.getItem('i18nextLng').slice(0,2)
 
   const [lang, setLang] = useState(myLang)
   const handleClick = (language) => {
