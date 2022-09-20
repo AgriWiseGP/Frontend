@@ -9,7 +9,7 @@ import GoBack from '../GoBack';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,24}$/;
 // const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const PWD_REGEX = /^[A-z][A-z0-9-_]{8,24}$/;
+const PWD_REGEX = /^[A-z][A-z0-9-_]{7,24}$/;
 const Mail_REGEX = /^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/;
 
 const Register = (props) => {

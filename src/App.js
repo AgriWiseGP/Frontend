@@ -9,7 +9,6 @@ import Register from './Components/Login_Register/Register'
 import ResetPass from './Components/Login_Register/ResetPass'
 import Home from './Components/Home/Home'
 import NotFound from './Components/NotFound'
-
 // import Languages from './Components/Languages';
 import eg from './images/eg.svg'
 import us from './images/us.svg'
