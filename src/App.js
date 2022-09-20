@@ -18,13 +18,13 @@ import Toggler from './Components/Toggler'
 
 const App = () => {
   const { t, i18n } = useTranslation()
-  let myLang = window.localStorage.getItem('language')
+  let myLang = window.localStorage.getItem('i18nextLng')
 
   const [lang, setLang] = useState(myLang)
   const handleClick = (language) => {
     i18n.changeLanguage(language)
     console.log(lang === 'en')
-    window.localStorage.setItem('language', language)
+    window.localStorage.setItem('i18nextLng', language)
     setLang(myLang)
   }
   document.documentElement.setAttribute('lang', myLang)

@@ -3,7 +3,7 @@ import img from '../../images/signUp.svg';
 import imag from "../../images/wavy.png";
 // import lock from '../../images/padlock.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUser,faLock,faEnvelope} from '@fortawesome/free-solid-svg-icons' 
+import {faUser, faLock, faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons' 
 import { useNavigate } from 'react-router-dom';
 import GoBack from '../GoBack';
 
@@ -31,6 +31,10 @@ const Register = (props) => {
     const [matchPwd, setMatchPwd] = useState('');
     const [validMatch, setValidMatch] = useState(false);
     const [matchFocus, setMatchFocus] = useState(false); 
+
+    const [showPass, setShowPass] =useState(false);
+
+    const [showPassTwo, setShowPassTwo] =useState(false);
 
     const [errMsg, setErrMsg] = useState('');
     // const [success, setSuccess] = useState(false);
@@ -137,9 +141,9 @@ const Register = (props) => {
               <FontAwesomeIcon icon={faLock} className="text-xl w-100 text-green-950"/>
                 {/* <img src={lock} className="inline-block" alt=''/> */}
                 <input
-                  type="password"
+                  type={showPass ? "text" : "password"}
                   placeholder={props.t("password.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   onChange={(e) => setPwd(e.target.value)}
                   value={pwd}
                   required
@@ -148,6 +152,7 @@ const Register = (props) => {
                   onFocus={() => setPwdFocus(true)}
                   onBlur={() => setPwdFocus(false)}
                 />
+                <FontAwesomeIcon icon={showPass ? faEye : faEyeSlash} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPass(!showPass)}/>
               </div>
               <p id="pwdErr" className={`${pwd && pwdFocus && !validPwd ?  "text-red-500" : "hidden"} ltr:text-left mt-2 rtl:text-right w-full`}>
                 {props.t("passErr.1")}
@@ -155,9 +160,9 @@ const Register = (props) => {
               <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
               <FontAwesomeIcon icon={faLock} className="text-xl w-100 text-green-950"/>
                 <input
-                  type="password"
+                  type={showPassTwo ? "text" : "password"}
                   placeholder={props.t("confirmPass.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   onChange={(e) => setMatchPwd(e.target.value)}
                   value={matchPwd}
                   required
@@ -166,6 +171,7 @@ const Register = (props) => {
                   onFocus={() => setMatchFocus(true)}
                   onBlur={() => setMatchFocus(false)}
                 />
+                <FontAwesomeIcon icon={showPassTwo ? faEye : faEyeSlash} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPassTwo(!showPassTwo)}/>
               </div>
               <p id="confirmErr" className={`${matchPwd && matchFocus && !validMatch ?  "text-red-500" : "hidden"} w-full ltr:text-left rtl:text-right mt-2`}>
                   {props.t("identical.1")}

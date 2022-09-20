@@ -4,7 +4,7 @@ import img from '../../images/login.svg'
 import imag from '../../images/wavy.png'
 // import lock from '../../images/padlock.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLock, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faLock, faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import GoBack from '../GoBack'
 const Login = (props) => {
   const navigate = useNavigate()
@@ -17,6 +17,8 @@ const Login = (props) => {
   const [mail, setMail] = useState('')
 
   const [pwd, setPwd] = useState('')
+
+  const [showPass, setShowPass] =useState(false);
 
   const [errMsg, setErrMsg] = useState('')
   // const [success, setSuccess] = useState(false);
@@ -111,13 +113,14 @@ const Login = (props) => {
                 />
                 {/* <img src={lock} className="inline-block" alt=''/> */}
                 <input
-                  type="password"
+                  type={showPass ? "text" : "password"}
                   placeholder={props.t('password.1')}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   onChange={(e) => setPwd(e.target.value)}
                   value={pwd}
                   required
                 />
+                <FontAwesomeIcon icon={showPass ? faEye : faEyeSlash} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPass(!showPass)}/>
               </div>
               <p
                 className="mt-2 ltr:text-left rtl:text-right w-full cursor-pointer dark:text-white"
