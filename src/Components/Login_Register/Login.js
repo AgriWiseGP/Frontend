@@ -6,6 +6,7 @@ import imag from '../../images/wavy.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock, faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import GoBack from '../GoBack'
+
 const Login = (props) => {
   const navigate = useNavigate()
 
@@ -120,7 +121,7 @@ const Login = (props) => {
                   value={pwd}
                   required
                 />
-                <FontAwesomeIcon icon={showPass ? faEye : faEyeSlash} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPass(!showPass)}/>
+                <FontAwesomeIcon icon={showPass ? faEyeSlash : faEye} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPass(!showPass)}/>
               </div>
               <p
                 className="mt-2 ltr:text-left rtl:text-right w-full cursor-pointer dark:text-white"

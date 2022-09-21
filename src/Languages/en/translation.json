@@ -36,7 +36,7 @@
       "1":"Invalid Email"
     },
     "passErr":{
-      "1":"Must begin with letter, contains at least one letter and one number, be between 8 and 24"
+      "1":"Must contain uppercase, lowercase letters and numbers and be between 8 and 24"
     },
     "identical":{
       "1":"Must match the first password input field"
