@@ -121,7 +121,7 @@ const Login = (props) => {
                   value={pwd}
                   required
                 />
-                <FontAwesomeIcon icon={showPass ? faEyeSlash : faEye} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPass(!showPass)}/>
+                <FontAwesomeIcon icon={showPass ? faEye : faEyeSlash} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPass(!showPass)}/>
               </div>
               <p
                 className="mt-2 ltr:text-left rtl:text-right w-full cursor-pointer dark:text-white"

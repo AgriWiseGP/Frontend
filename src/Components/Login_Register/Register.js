@@ -153,7 +153,7 @@ const Register = (props) => {
                   // onFocus={() => setPwdFocus(true)}
                   // onBlur={() => setPwdFocus(false)}
                 />
-                <FontAwesomeIcon icon={showPass ? faEyeSlash : faEye} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPass(!showPass)}/>
+                <FontAwesomeIcon icon={showPass ? faEye : faEyeSlash} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPass(!showPass)}/>
               </div>
               <p id="pwdErr" className={`${pwd && !validPwd ?  "text-red-500" : "hidden"} ltr:text-left mt-2 rtl:text-right w-full`}>
                 {props.t("passErr.1")}
@@ -172,7 +172,7 @@ const Register = (props) => {
                   // onFocus={() => setMatchFocus(true)}
                   // onBlur={() => setMatchFocus(false)}
                 />
-                <FontAwesomeIcon icon={showPassTwo ? faEyeSlash : faEye} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPassTwo(!showPassTwo)}/>
+                <FontAwesomeIcon icon={showPassTwo ? faEye : faEyeSlash} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPassTwo(!showPassTwo)}/>
               </div>
               <p id="confirmErr" className={`${matchPwd && !validMatch ?  "text-red-500" : "hidden"} w-full ltr:text-left rtl:text-right mt-2`}>
                   {props.t("identical.1")}
