@@ -46,11 +46,11 @@ const App = () => {
       {/* <GoBack t={t}/> */}
         <Routes>
           <Route element={<PrivateRoutes />}>
-            <Route path="/" element={<Home t={t} lang={myLang} />} exact />
+            <Route path="/home" element={<Home t={t} lang={myLang} />} exact />
           </Route>
           <Route element={<PrivateRouteLog />}>
             <Route
-              path="LoginOrRegister"
+              path="/"
               element={<LoginOrRegister t={t} lang={myLang} />}
             />
             <Route path="Register" element={<Register t={t} lang={myLang} />} />

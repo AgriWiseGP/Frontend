@@ -5,6 +5,9 @@
     "login":{
       "1":"Log in"
     },
+    "logout":{
+      "1":"Logout"
+    },
     "or":{
       "1":"or"
     },

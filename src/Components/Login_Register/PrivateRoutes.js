@@ -1,11 +1,11 @@
 import React from 'react'
 import {Outlet , Navigate} from 'react-router-dom'
-
-export let auth={'token': false};
+import {isToken} from './Google-Login.js'
+export let auth={'token': isToken !== "null" ? true : false};
 
 const PrivateRoutes=()=> {
   return (
-    auth.token ? <Outlet/> : <Navigate to="/LoginOrRegister"/>
+    auth.token ? <Outlet/> : <Navigate to="/"/>
   )
 }
 

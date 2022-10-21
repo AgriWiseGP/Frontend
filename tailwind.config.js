@@ -20,6 +20,9 @@ module.exports = {
         green:{
           950: "#17A267",
         },
+        facebook:{
+          100: "#4c69ba"
+        },
       },
       fontFamily:
       {

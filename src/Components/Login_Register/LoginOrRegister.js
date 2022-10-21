@@ -2,8 +2,9 @@ import React from 'react'
 import imag from '../../images/wavy.png'
 import img from '../../images/Farmer-image.svg'
 import { useNavigate } from 'react-router-dom'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import Googlelogin from './Google-Login'
+import Facebooklogin from './Facebook-Login'
+
 const LoginOrRegister = (props) => {
   const navigate = useNavigate()
   return (
@@ -39,6 +40,19 @@ const LoginOrRegister = (props) => {
             onClick={() => navigate('/Register', { replace: true })}
           >
             {props.t('signup.1')}
+          </div>
+          <div className="flex justify-between items-center">
+            <hr className="flex-1"/>
+            <div className="p-4 dark:text-white">{props.t("or.1")}</div>
+            <hr className="flex-1"/>
+          </div>
+          <div className="flex justify-around items-center w-full">
+            <span className="h-10 w-10 rounded-full bg-slate-300 dark:bg-slate-100 flex items-center justify-center cursor-pointer">
+              <Googlelogin t={props.t}/>
+            </span>
+            <span className="h-10 w-10 rounded-full bg-facebook-100 text-white font-bold flex items-center justify-center text-xl cursor-pointer">
+              <Facebooklogin t={props.t}/>
+            </span>
           </div>
         </div>
       </div>
