@@ -1,6 +1,7 @@
 import React from 'react'
 import imag from '../../images/wavy.png'
 import img from '../../images/Farmer-image.svg'
+import logo from '../../images/DOC.svg'
 import { useNavigate } from 'react-router-dom'
 import Googlelogin from './Google-Login'
 import Facebooklogin from './Facebook-Login'
@@ -25,19 +26,19 @@ const LoginOrRegister = (props) => {
           />
         </div>
         <div className="w-full text-center p-10 lg:p-0 md:w-500">
-          {/* <img src="Assets/avatar.svg" className="w-32" /> */}
-          <h2 className="my-8 font-display font-bold text-3xl dark:text-white text-center">
+          <img src={logo} className="w-32 inline-block dark:hidden" alt="AgriWise" />
+          <h2 className="my-8 font-display font-bold text-3xl dark:text-white text-center font-sans hidden dark:inline-block">
             AgriWise
           </h2>
           <div
             className="shadow-lg cursor-pointer py-3 px-20 rounded-full text-white font-bold w-full text-center mt-10 transform transition-all duration-500 bg-green-950 text-xl xl:text-3xl dark:text-gray-700"
-            onClick={() => navigate('/Login', { replace: true })}
+            onClick={() => navigate('/login', { replace: true })}
           >
             {props.t('login.1')}
           </div>
           <div
             className="shadow-lg cursor-pointer py-3 px-20 rounded-full text-green-950 font-bold w-full text-center mt-5 transform transition-all duration-500 bg-gray-100 text-xl xl:text-3xl dark:bg-gray-700"
-            onClick={() => navigate('/Register', { replace: true })}
+            onClick={() => navigate('/register', { replace: true })}
           >
             {props.t('signup.1')}
           </div>
@@ -50,7 +51,7 @@ const LoginOrRegister = (props) => {
             <span className="h-10 w-10 rounded-full bg-slate-300 dark:bg-slate-100 flex items-center justify-center cursor-pointer">
               <Googlelogin t={props.t}/>
             </span>
-            <span className="h-10 w-10 rounded-full bg-facebook-100 text-white font-bold flex items-center justify-center text-xl cursor-pointer">
+            <span className="h-10 w-10 rounded-full bg-facebook-100 text-white font-bold flex items-center justify-center text-xl cursor-pointer font-sans">
               <Facebooklogin t={props.t}/>
             </span>
           </div>

@@ -125,7 +125,7 @@ const Login = (props) => {
               </div>
               <p
                 className="mt-2 ltr:text-left rtl:text-right w-full cursor-pointer dark:text-white"
-                onClick={() => navigate('/ResetPass', { replace: true })}
+                onClick={() => navigate('/reset-password', { replace: true })}
               >
                 {props.t('forgotPass.1')}
               </p>
@@ -139,7 +139,7 @@ const Login = (props) => {
                 {props.t("don'tHaveAccount.1")}&nbsp;
                 <span
                   className="cursor-pointer text-green-950"
-                  onClick={() => navigate('/Register', { replace: true })}
+                  onClick={() => navigate('/register', { replace: true })}
                 >
                   {props.t('createAccount.1')}
                 </span>

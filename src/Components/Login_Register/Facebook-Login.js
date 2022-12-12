@@ -1,17 +1,19 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import FacebookLogin from 'react-facebook-login';
+
 const Facebooklogin = (props) => {
     const [showLoginBtn, setShowLoginBtn]=useState(true);
     const [showLogoutBtn, setShowLogoutBtn]=useState(false);
-    const [accessToken, setAccessToken]= useState("")
+    const [accessToken, setAccessToken]= useState(JSON.parse(window.localStorage.getItem('token') || false))
     const componentClicked = (data)=>{
         console.log("data", data)
     }
     const responseFacebook = (response) => {
-        setAccessToken(response.accessToken);
+        setAccessToken(window.localStorage.setItem('token', JSON.stringify(response.accessToken === "null" ? false : true )));
         setShowLoginBtn(false);
         setShowLogoutBtn(true);
     }
+
     const logout=(e)=>{
         e.preventDefault();
         window.FB.logout((res)=>{

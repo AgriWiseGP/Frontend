@@ -32,7 +32,7 @@ const App = () => {
     document.documentElement.setAttribute('dir', 'rtl')
   }
   return (
-    <div className="App rtl:font-noto">
+    <div className="App rtl:font-noto ltr:font-sans">
       <img
         src={myLang === 'ar' ? eg : us}
         alt=""
@@ -53,9 +53,9 @@ const App = () => {
               path="/"
               element={<LoginOrRegister t={t} lang={myLang} />}
             />
-            <Route path="Register" element={<Register t={t} lang={myLang} />} />
-            <Route path="Login" element={<Login t={t} lang={myLang} />} />
-            <Route path="ResetPass" element={<ResetPass t={t} lang={myLang} />} />
+            <Route path="register" element={<Register t={t} lang={myLang} />} />
+            <Route path="login" element={<Login t={t} lang={myLang} />} />
+            <Route path="reset-password" element={<ResetPass t={t} lang={myLang} />} />
           </Route>
           <Route path="*" element={<NotFound/>} />
         </Routes>

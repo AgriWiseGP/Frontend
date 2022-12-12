@@ -3,7 +3,7 @@ import React from 'react'
 function Home(props) {
   const onLogoutSuccess=()=>{
         console.log("you have signed out successfully")
-        window.localStorage.setItem('token', "null")
+        window.localStorage.setItem('token', false)
     }
   return (
     <div> 

@@ -1,37 +1,27 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {GoogleLogin} from 'react-google-login'
 import {gapi} from "gapi-script"
-export let isToken = window.localStorage.getItem('token')
-
-const Googlelogin = (props) => {
+const Googlelogin = () => {
     const clientId="7530698736-lk16oppo4qeckq2ei8u2svc6q7hlkeh5.apps.googleusercontent.com";
+    const [accessToken, setAccessToken]= useState(JSON.parse(window.localStorage.getItem('token') || false))
     useEffect(()=>{
         gapi.load("client:auth2",()=>{
             gapi.auth2.init({clientId: clientId})
         })
     },[])
-
     const onLoginSuccess=(res)=>{
         console.log("Login success", res.profileObj, res.accessToken);
-        window.localStorage.setItem('token', res.accessToken)
+        setAccessToken(window.localStorage.setItem('token', JSON.stringify(res.accessToken === "null" ? false : true )))
     }
     const onLoginFailure=(res)=>{
         console.log("Login failed", res);
     }
     return (
     <>
-        {/* {isToken !== "null"?
-        <GoogleLogout
-        clientId={clientId}
-        buttonText={props.t("logout.1")}
-        onLogoutSuccess={onLogoutSuccess}
-        >
-        </GoogleLogout>
-        : */}
         <GoogleLogin
             clientId={clientId}
             render={renderProps =>(
-                <button onClick={renderProps.onClick} ><svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><g fill="#000" fill-rule="evenodd"><path d="M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z" fill="#EA4335"></path><path d="M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z" fill="#4285F4"></path><path d="M3.88 10.78A5.54 5.54 0 0 1 3.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9.008 9.008 0 0 0 0 9c0 1.45.35 2.82.96 4.04l2.92-2.26z" fill="#FBBC05"></path><path d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z" fill="#34A853"></path><path fill="none" d="M0 0h18v18H0z"></path></g></svg></button>
+                <button onClick={renderProps.onClick} ><svg width="18" height="18" xmlns="http://www.w3.org/2000/svg"><g fill="#000" fillRule="evenodd"><path d="M9 3.48c1.69 0 2.83.73 3.48 1.34l2.54-2.48C13.46.89 11.43 0 9 0 5.48 0 2.44 2.02.96 4.96l2.91 2.26C4.6 5.05 6.62 3.48 9 3.48z" fill="#EA4335"></path><path d="M17.64 9.2c0-.74-.06-1.28-.19-1.84H9v3.34h4.96c-.1.83-.64 2.08-1.84 2.92l2.84 2.2c1.7-1.57 2.68-3.88 2.68-6.62z" fill="#4285F4"></path><path d="M3.88 10.78A5.54 5.54 0 0 1 3.58 9c0-.62.11-1.22.29-1.78L.96 4.96A9.008 9.008 0 0 0 0 9c0 1.45.35 2.82.96 4.04l2.92-2.26z" fill="#FBBC05"></path><path d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.84-2.2c-.76.53-1.78.9-3.12.9-2.38 0-4.4-1.57-5.12-3.74L.97 13.04C2.45 15.98 5.48 18 9 18z" fill="#34A853"></path><path fill="none" d="M0 0h18v18H0z"></path></g></svg></button>
             )}
             onSuccess={onLoginSuccess}
             onFailure={onLoginFailure}

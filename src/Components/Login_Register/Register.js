@@ -180,7 +180,7 @@ const Register = (props) => {
               <button type="submit" disabled={!validName || !validMail || !validPwd || !validMatch ? true : false}
                 className="py-3 px-20 rounded-full text-white font-bold w-full text-center mt-10 transform hover:translate-y-1 transition-all duration-500 cursor-pointer disabled:opacity-50 disabled:pointer-events-none bg-green-950 text-xl xl:text-3xl">{props.t("signup.1")}
               </button>
-              <div className='lg mt-5 dark:text-white' >{props.t("haveAccount.1")}&nbsp; <span className='cursor-pointer text-green-950' onClick={()=>navigate("/Login",{replace:true})}>{props.t("login.1")}</span></div>
+              <div className='lg mt-5 dark:text-white' >{props.t("haveAccount.1")}&nbsp; <span className='cursor-pointer text-green-950' onClick={()=>navigate("/login",{replace:true})}>{props.t("login.1")}</span></div>
             </form>
         </div>
       </div>
