@@ -1,13 +1,17 @@
 import React from 'react'
-
-function Home(props) {
-  const onLogoutSuccess=()=>{
-        console.log("you have signed out successfully")
-        window.localStorage.setItem('token', false)
-    }
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
+import Features  from '../Features/Features'
+import Carasoul from '../Carasoul'
+const Home = (props) => { 
   return (
-    <div> 
-      <button onClick={onLogoutSuccess}>{props.t("logout.1")}</button>
+    <div>
+      <div className="bg-[#F7F2EC]">
+        <Header  t={props.t} lang={props.lang} handleClick={props.handleClick}/>
+       <Carasoul t={props.t} lang={props.lang}/>
+        <Features t={props.t} lang={props.lang}/>
+        <Footer t={props.t} lang={props.lang}/>
+      </div>
     </div>
   )
 }

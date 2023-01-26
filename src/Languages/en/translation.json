@@ -64,5 +64,63 @@
     },
     "back":{
       "1": "Go back"
+    },
+    "features":{
+      "1":"Our Features"
+    },
+    "safety":{
+      "title":"Crop Safety",
+      "text":"Enter a picture of your crop to help you identify the type of disease and suggest a treatment for it."
+        },
+    "recommendation":{
+      "title":"Crop Recommendation",
+      "text":"We suggest some crops that suit you by knowing your location,soil type,and air temperature."
+    },
+    "quality":{
+      "title":"Soil Quality",
+      "text":"We help you judge whether the soil is suitable for cultivation or not by analyzing it."
+    },
+    "risks":{
+      "title":"Crop risks and treatments",
+      "text":"We display information about your cultivated crop,common diseases and methods of treatment"
+    },
+    "nursery":{
+      "title":"The nearest nursery",
+      "text":"We suggest the nearest nursery to you to get the crops you need."
+    },
+    "lab":{
+      "title":"The nearest laboratory",
+      "text":"We suggest the nearest analysis laboratory to your location in order to conduct analzyes of your soil."
+    },
+    "fertilizer":{
+      "title":"Fertilizer and treatment",
+      "text":"We suggest the nearest nursery to buy fertilizers and treatment for your crop."
+    },
+    "go":{
+      "1":"Go"
+    },
+    "home":{
+      "1":"Home"
+    },
+    "contact":{
+      "1":"Contact"
+    },
+    "about":{
+      "1":"About"
+    },
+    "feature":{
+      "1":"Features"
+    },
+    "lang":{
+      "1":"EN"
+    },
+    "agriwise":{
+      "1":"AgriWise is an application and website based on AI that helps to increase agriclutural production."
+    },
+    "links":{
+      "1":"Quick links"
+    },
+    "team":{
+      "1":"Our team"
     }
-  }
+}

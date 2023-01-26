@@ -6,7 +6,7 @@ import imag from '../../images/wavy.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock, faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import GoBack from '../GoBack'
-
+// import { auth } from './PrivateRoutes'
 const Login = (props) => {
   const navigate = useNavigate()
 
@@ -34,6 +34,9 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    // navigate('/home', { replace: true });
+    window.localStorage.setItem('token',true);
+    window.location.reload(true);
   }
   return (
     <div>
@@ -132,6 +135,7 @@ const Login = (props) => {
               <button
                 type="submit"
                 className="py-3 px-20 text-lg rounded-full text-white font-bold w-full text-center mt-10 transform hover:translate-y-1 transition-all duration-500 cursor-pointer bg-green-950 xl:text-2xl"
+                onClick={handleSubmit}
               >
                 {props.t('login.1')}
               </button>

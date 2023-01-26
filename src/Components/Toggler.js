@@ -15,23 +15,9 @@ const Toggler = () => {
     },[dark])
 
     return (
-    <span className="absolute right-12 top-2">
-      {/* <label
-        htmlFor="green-toggle"
-        className="inline-flex relative items-center mr-5 cursor-pointer"
-      >
-        <input
-          type="checkbox"
-          value=""
-          id="green-toggle"
-          className="sr-only peer"
-          onChange={()=>setDark(!dark)}
-          checked = {dark}
-        />
-        <div className="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
-      </label> */}
-      <FontAwesomeIcon icon={dark ? faMoon : faSun} className="text-yellow-400 dark:text-gray-400 text-3xl cursor-pointer" onClick={()=>setDark(!dark)}/>
-    </span>
+    <>
+      <FontAwesomeIcon icon={dark ? faMoon : faSun} className="text-yellow-400 dark:text-gray-400 text-2xl cursor-pointer" onClick={()=>setDark(!dark)}/>
+    </>
   )
 }
 
