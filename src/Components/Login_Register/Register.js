@@ -93,7 +93,6 @@ const Register = (props) => {
         </div>
         <div className='w-full text-center lg:w-500'>
           <form  onSubmit={handleSubmit} className="p-10 lg:p-0 lg:flex flex-col justify-center items-center mx-auto w-full lg:w-500 lg:h-600">
-              {/* <img src="Assets/avatar.svg" className="w-32" /> */}
               <h2
                 className="my-8 font-display font-bold text-3xl text-green-950 text-center"
               >
@@ -104,7 +103,7 @@ const Register = (props) => {
                 <input
                   type="text"
                   placeholder={props.t("username.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   ref={userRef}
                   autoComplete="off"
                   onChange={(e) => setUser(e.target.value)}
@@ -124,7 +123,7 @@ const Register = (props) => {
                 <input
                   type="email"
                   placeholder={props.t("email.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   autoComplete="off"
                   onChange={(e) => setMail(e.target.value)}
                   value={mail}
@@ -144,7 +143,7 @@ const Register = (props) => {
                 <input
                   type={showPass ? "text" : "password"}
                   placeholder={props.t("password.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   onChange={(e) => setPwd(e.target.value)}
                   value={pwd}
                   required
@@ -163,7 +162,7 @@ const Register = (props) => {
                 <input
                   type={showPassTwo ? "text" : "password"}
                   placeholder={props.t("confirmPass.1")}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   onChange={(e) => setMatchPwd(e.target.value)}
                   value={matchPwd}
                   required

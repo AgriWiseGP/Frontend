@@ -9,6 +9,7 @@ import Register from './Components/Login_Register/Register'
 import ResetPass from './Components/Login_Register/ResetPass'
 import Home from './Components/Home/Home'
 import NotFound from './Components/NotFound'
+import Toggler from './Components/Toggler'
 
 const App = () => {
   const { t, i18n } = useTranslation()
@@ -27,7 +28,10 @@ const App = () => {
     document.documentElement.setAttribute('dir', 'rtl')
   }
   return (
-    <div className="App rtl:font-noto ltr:font-sans">
+    <div className="App rtl:font-noto ltr:font-[Poppins]">
+      <div className='hidden'>
+      <Toggler/>
+      </div>
         <Routes>
           <Route element={<PrivateRoutes/>}>
             <Route path="/home" element={<Home t={t} lang={myLang} handleClick={handleClick}/>} exact />

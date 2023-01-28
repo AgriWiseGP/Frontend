@@ -6,7 +6,7 @@ import imag from '../../images/wavy.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock, faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import GoBack from '../GoBack'
-// import { auth } from './PrivateRoutes'
+
 const Login = (props) => {
   const navigate = useNavigate()
 
@@ -33,7 +33,7 @@ const Login = (props) => {
   }, [mail, pwd])
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     // navigate('/home', { replace: true });
     window.localStorage.setItem('token',true);
     window.location.reload(true);
@@ -102,7 +102,7 @@ const Login = (props) => {
                 <input
                   type="email"
                   placeholder={props.t('email.1')}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   autoComplete="off"
                   onChange={(e) => setMail(e.target.value)}
                   value={mail}
@@ -119,7 +119,7 @@ const Login = (props) => {
                 <input
                   type={showPass ? "text" : "password"}
                   placeholder={props.t('password.1')}
-                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                  className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   onChange={(e) => setPwd(e.target.value)}
                   value={pwd}
                   required
@@ -135,7 +135,6 @@ const Login = (props) => {
               <button
                 type="submit"
                 className="py-3 px-20 text-lg rounded-full text-white font-bold w-full text-center mt-10 transform hover:translate-y-1 transition-all duration-500 cursor-pointer bg-green-950 xl:text-2xl"
-                onClick={handleSubmit}
               >
                 {props.t('login.1')}
               </button>

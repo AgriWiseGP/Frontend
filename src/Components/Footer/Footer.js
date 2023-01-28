@@ -37,7 +37,7 @@ const Footer = (props) => {
   ]
   return (
     <div>
-      <div className="bg-[#EFE7DF] p-4 border-black ">
+      <div className="bg-[#EFE7DF] dark:bg-gray-800 p-4 border-black " id="footer">
         <div className="container mx-auto px-2">
           <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-12 gap-5 sm:gap-9 lg:gap-11 xl:gap-7 py-10 justify-between ">
             <div className="pb-3.5 sm:pb-0 col-span-1 md:col-span-2 lg:col-span-3">
@@ -48,7 +48,7 @@ const Footer = (props) => {
                   className="w-100 object-contain h-16"
                 />
               </Link>
-              <p className="leading-2 w-full sm:w-[200px]  text-border mt-3 text-black font-semibold">
+              <p className="leading-2 w-full sm:w-[200px]  text-border mt-3 dark:text-white text-black font-semibold">
                 {props.t("agriwise.1")}
               </p>
               <img
@@ -62,10 +62,10 @@ const Footer = (props) => {
                 key={i}
                 className="col-span-1 md:col-span-2 lg:col-span-3 pb-3.5 sm:pb-0 "
               >
-                <h3 className="text-xl lg:leading-7 font-bold mb-4 sm:mb-5 lg:mb-6 pb-.5 mb-3.5 text-black">
+                <h3 className="text-xl lg:leading-7 font-bold mb-4 sm:mb-5 lg:mb-6  pb-.5 text-black dark:text-white">
                   {link.title}
                 </h3>
-                <ul className="flex flex-col space-y-2 text-black">
+                <ul className="flex flex-col space-y-2 text-black dark:text-white">
                   {link.links.map((li, i) => (
                     <li key={i} className="flex ">
                       <Link
@@ -80,10 +80,10 @@ const Footer = (props) => {
               </div>
             ))}
             <div className="col-span-1 md:col-span-2 lg:col-span-3 pb-3.5 sm:pb-0">
-              <h3 className="text-xl lg:leading-7 font-bold mb-4 sm:mb-5 lg:mb-6 pb-.5 mb-3.5 text-black">
+              <h3 className="text-xl lg:leading-7 font-bold mb-4 sm:mb-5 lg:mb-6 pb-.5 text-black dark:text-white">
                 {props.t("contact.1")}
               </h3>
-              <ul className=" flex flex-col space-y-2 text-black rtl:font-sans">
+              <ul className=" flex flex-col space-y-2 text-black dark:text-white rtl:font-sans">
                 <li className="flex ">
                   <span className="text-border inline-block w-full">
                     01010101010
@@ -99,8 +99,8 @@ const Footer = (props) => {
           </div>
         </div>
       </div>
-      <div className="w-full h-16 bg-[#F7F2EC] rtl:hidden">
-        <div className="text-center text-black pt-4 font-bold">
+      <div className="w-full h-16 bg-[#F7F2EC] dark:bg-[#111827] rtl:hidden">
+        <div className="text-center text-black dark:text-white pt-4 font-bold">
           Copyright © 2023 <span className="text-green-950">AgriWise</span>
         </div>
       </div>

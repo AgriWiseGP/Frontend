@@ -5,7 +5,7 @@ import s3 from '../images/s3.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons'
 
-const Carasoul = (props) => {
+const Carousel = (props) => {
   return (
     <div id="default-carousel" className="relative" data-carousel="slide">
     <div className="relative h-56 overflow-hidden md:h-[450px]">
@@ -15,11 +15,11 @@ const Carasoul = (props) => {
           className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt=""
         />
-         <div className="carousel-caption text-left flex justify-center items-center flex-col absolute z-30 text-white text-center bg-opacity-50 w-full h-full bg-gray-900">
+        <div className="carousel-caption text-left flex justify-center items-center flex-col absolute z-30 text-white text-center bg-opacity-50 w-full h-full bg-gray-900">
           <h5 className=" block font-bold text-xl md:text-3xl ">
             {props.t("safety.title")}
           </h5>
-          <p className="w-[200px] md:w-[500px] text-lg md:text-2xl mt-5 ">
+          <p className="w-[207px] md:w-[500px] text-lg md:text-2xl mt-5 mb-5 ">
             {props.t("safety.text")}
           </p>
         </div>
@@ -34,7 +34,7 @@ const Carasoul = (props) => {
           <h5 className=" block font-bold text-xl md:text-3xl">
             {props.t("quality.title")}
           </h5>
-          <p className="w-[200px] md:w-[500px] text-lg md:text-2xl mt-5 ">
+          <p className="w-[207px] md:w-[500px] text-lg md:text-2xl mt-5 mb-5 ">
             {props.t("quality.text")}
           </p>
         </div>
@@ -49,7 +49,7 @@ const Carasoul = (props) => {
           <h5 className=" block mx-auto font-bold text-xl md:text-3xl ">
             {props.t("recommendation.title")}
           </h5>
-          <p className="w-[200px] md:w-[500px] text-lg md:text-2xl mt-5 ">
+          <p className="w-[207px] md:w-[500px] text-lg md:text-2xl mt-5 mb-5 ">
            {props.t("recommendation.text")}
           </p>
         </div>
@@ -86,7 +86,7 @@ const Carasoul = (props) => {
       <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-[#17A267] group-hover:bg-white/50 dark:group-hover:bg-green-400">
       <FontAwesomeIcon
             icon={faAngleLeft}
-            className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-white"
+            className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-[#111827]"
           />
         <span className="sr-only">Previous</span>
       </span>
@@ -99,7 +99,7 @@ const Carasoul = (props) => {
       <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-[#17A267] group-hover:bg-white/50 dark:group-hover:bg-green-400 ">
       <FontAwesomeIcon
             icon={faAngleRight}
-            className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-white"
+            className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-[#111827]"
           />
         <span className="sr-only">Next</span>
       </span>
@@ -107,4 +107,4 @@ const Carasoul = (props) => {
   </div>  )
 }
 
-export default Carasoul
+export default Carousel
