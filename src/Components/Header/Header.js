@@ -22,6 +22,7 @@ const Header = (props) => {
         document.querySelectorAll("li")[0].classList.add("active")}
     })
     const handleActive=(e)=>{
+      
         document.querySelectorAll("li").forEach(link =>{
             document.querySelectorAll(".active").forEach(ele=>{
                 ele.classList.remove('active')
@@ -36,7 +37,7 @@ const Header = (props) => {
         </div>
         <div
           onClick={() => setOpen(!open)}
-          className="text-2xl cursor-pointer md:hidden "
+          className="text-2xl cursor-pointer md:hidden h-[24px]"
         >
            <FontAwesomeIcon
                   icon={open ? faXmark : faBars}
@@ -44,7 +45,7 @@ const Header = (props) => {
                 />
         </div>
         <ul
-          className={`items-start bg-[#F7F2EC] dark:bg-gray-800 w-full md:w-auto left-0 top-16 md:top-0 absolute md:relative justify-between gap-2 flex-col md:flex-row md:items-center ${
+          className={`items-start bg-[#F7F2EC] dark:bg-gray-800 w-full md:w-auto left-0 top-[72px] md:top-0 absolute md:relative justify-between gap-2 flex-col md:flex-row md:items-center ${
             open? 'flex' : 'hidden'
           } md:flex`} 
         >

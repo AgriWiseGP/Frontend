@@ -33,7 +33,7 @@ const Login = (props) => {
   }, [mail, pwd])
 
   const handleSubmit = (e) => {
-    // e.preventDefault()
+    e.preventDefault()
     // navigate('/home', { replace: true });
     window.localStorage.setItem('token',true);
     window.location.reload(true);
@@ -62,7 +62,6 @@ const Login = (props) => {
               onSubmit={handleSubmit}
               className="p-10 lg:p-0 lg:flex flex-col justify-center items-center mx-auto w-full lg:w-500 lg:h-600"
             >
-              {/* <img src="Assets/avatar.svg" className="w-32" /> */}
               <h2 className="my-8 font-display font-bold text-3xl text-green-950 text-center">
                 {props.t('welcome.1')}
               </h2>

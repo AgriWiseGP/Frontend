@@ -122,5 +122,11 @@
     },
     "team":{
       "1":"Our team"
+    },
+    "photo":{
+      "1":"Upload photo"
+    },
+    "noPhoto":{
+      "1":" No photo chosen"
     }
 }

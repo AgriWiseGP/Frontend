@@ -111,8 +111,6 @@ const Register = (props) => {
                   required
                   aria-invalid={validName ? "false" : "true"}
                   aria-describedby="userErr"
-                  // onFocus={() => setUserFocus(true)}
-                  // onBlur={() => setUserFocus(false)}
                 />
               </div>
               <p  id="userErr" className={`${user && !validName ? "text-red-500" : "hidden"} mt-2 ltr:text-left rtl:text-right w-full`}>
@@ -130,8 +128,6 @@ const Register = (props) => {
                   required
                   aria-invalid={validMail ? "false" : "true"}
                   aria-describedby="mail"
-                  // onFocus={() => setMailFocus(true)}
-                  // onBlur={() => setMailFocus(false)}
                 />
               </div>
               <p  id="mail" className={`${mail && !validMail ? "text-red-500" : "hidden"} mt-2 ltr:text-left rtl:text-right w-full`}>
@@ -139,7 +135,6 @@ const Register = (props) => {
               </p>
               <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
               <FontAwesomeIcon icon={faLock} className="text-xl w-100 text-green-950"/>
-                {/* <img src={lock} className="inline-block" alt=''/> */}
                 <input
                   type={showPass ? "text" : "password"}
                   placeholder={props.t("password.1")}
@@ -149,8 +144,6 @@ const Register = (props) => {
                   required
                   aria-invalid={validPwd ? "false" : "true"}
                   aria-describedby="pwdErr"
-                  // onFocus={() => setPwdFocus(true)}
-                  // onBlur={() => setPwdFocus(false)}
                 />
                 <FontAwesomeIcon icon={showPass ? faEye : faEyeSlash} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPass(!showPass)}/>
               </div>
@@ -168,8 +161,6 @@ const Register = (props) => {
                   required
                   aria-invalid={validMatch ? "false" : "true"}
                   aria-describedby="confirmErr"
-                  // onFocus={() => setMatchFocus(true)}
-                  // onBlur={() => setMatchFocus(false)}
                 />
                 <FontAwesomeIcon icon={showPassTwo ? faEye : faEyeSlash} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPassTwo(!showPassTwo)}/>
               </div>
