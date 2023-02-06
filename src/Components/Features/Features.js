@@ -1,11 +1,11 @@
 import React from 'react'
-import imgfeature1 from '../../images/Mask Group 1.png'
-import imgfeature2 from '../../images/Mask Group 5.png'
-import imgfeature3 from '../../images/Mask Group 6.png'
-import imgfeature4 from '../../images/Mask Group 7.png'
-import imgfeature5 from '../../images/Mask Group 8.png'
-import imgfeature6 from '../../images/Mask Group 9.png'
-import imgfeature7 from '../../images/Mask Group 13.png'
+import imgfeature1 from '../../image/Mask Group 1.webp'
+import imgfeature2 from '../../image/Mask Group 5.webp'
+import imgfeature3 from '../../image/Mask Group 6.webp'
+import imgfeature4 from '../../image/Mask Group 7.webp'
+import imgfeature5 from '../../image/Mask Group 8.webp'
+import imgfeature6 from '../../image/Mask Group 9.webp'
+import imgfeature7 from '../../image/Mask Group 13.webp'
 import { useNavigate } from 'react-router-dom'
 
 const Features = (props) => {
@@ -15,7 +15,7 @@ const Features = (props) => {
       img:imgfeature1,title:props.t("safety.title"),text:props.t("safety.text"),link:"/crop-safety"
     },
     {
-      img:imgfeature2,title:props.t("recommendation.title"),text:props.t("recommendation.text"),link:"/"
+      img:imgfeature2,title:props.t("recommendation.title"),text:props.t("recommendation.text"),link:"/crop-recommendation"
     },
     {
       img:imgfeature3,title:props.t("quality.title"),text:props.t("quality.text"),link:""

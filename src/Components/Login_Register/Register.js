@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
-import img from '../../images/signUp.svg';
-import imag from "../../images/wavy.png";
+import img from '../../image/signUp.webp';
+import imag from "../../image/wavy.webp";
 // import lock from '../../images/padlock.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser, faLock, faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons' 

@@ -1,10 +1,9 @@
 import React from 'react'
-import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import GoBack from '../GoBack'
-import s1 from '../../images/s1.jpg'
-import imgfeature1 from '../../images/Mask Group 1.png'
-import imgphone from '../../images/Group 66.png'
+import s1 from '../../image/s1.webp'
+import imgfeature1 from '../../image/Mask Group 1.webp'
+import imgphone from '../../image/Group 66.webp'
 const CropSafety = (props) => {
   const handleChange = (e) => {
     const [file] = e.target.files
@@ -91,7 +90,7 @@ const CropSafety = (props) => {
                     </h3>
                     <button
                       type="button"
-                      className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                      className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                       data-modal-hide="defaultModal"
                     >
                       <svg
@@ -111,7 +110,7 @@ const CropSafety = (props) => {
                     </button>
                   </div>
                   <div className="p-6 space-y-6">
-                    <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400 text-left">
+                    <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400 text-left rtl:text-right">
                       your plant has disease ...
                     </p>
                   </div>

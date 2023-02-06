@@ -25,7 +25,7 @@ const Home = (props) => {
         <Carousel t={props.t} lang={props.lang}/>
         <Features t={props.t} lang={props.lang}/>
         <Footer t={props.t} lang={props.lang}/>
-        <div className={`fixed bg-green-950 rounded-full h-[35px] w-[35px] m-3 bottom-0 right-0 flex items-center justify-center cursor-pointer ${visible ? 'block' : 'hidden'}`} onClick={scrollToTop}><FontAwesomeIcon icon={faArrowUp} className="text-white dark:text-black"/></div>
+        <div className={`fixed bg-green-950 rounded-full h-[35px] w-[35px] m-3 bottom-0 right-0 flex items-center justify-center cursor-pointer ${visible ? 'block' : 'hidden'}`} onClick={scrollToTop}><FontAwesomeIcon icon={faArrowUp} className="text-white dark:text-gray-800"/></div>
       </div>
     </div>
   )

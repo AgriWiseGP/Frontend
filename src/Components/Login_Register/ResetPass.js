@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react'
-import imag from '../../images/wavy.png'
-import img from '../../images/reset.svg'
+import imag from '../../image/wavy.webp'
+import img from '../../image/reset.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons' 
 import GoBack from '../GoBack'

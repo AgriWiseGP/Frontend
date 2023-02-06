@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
-import eg from "../../images/eg1.jpeg"
-import logo from '../../images/DOC.svg'
-import united from '../../images/united-states.png'
+import eg from "../../image/eg1.webp"
+import logo from '../../image/DOC.webp'
+import united from '../../image/united-states.webp'
 import Toggler from '../Toggler'
 const Header = (props) => {
   let Links = [
@@ -50,7 +50,7 @@ const Header = (props) => {
           } md:flex`} 
         >
           {Links.map((link) => (
-            <li key={link.name} className='text-[20px] p-2 w-full md:w-auto text-black dark:text-white cursor-pointer hover:bg-green-950 transition-all duration-500' onClick={(e)=>{e.preventDefault();
+            <li key={link.name} className='text-[20px] rounded-sm	 p-2 w-full md:w-auto text-gray-800 dark:text-white cursor-pointer hover:bg-green-950 transition-all duration-500' onClick={(e)=>{e.preventDefault();
              document.getElementById(link.section).scrollIntoView({
                 behavior:'smooth',
             }) ;setOpen(!open);handleActive(e)}}>
@@ -58,7 +58,7 @@ const Header = (props) => {
                 {link.name}
             </li>
           ))}
-          <li className="flex items-center dark:text-white gap-1 p-2 ltr:flex-row-reverse cursor-pointer" onClick={() => {
+          <li className="flex items-center text-gray-800 dark:text-white gap-1 p-2 ltr:flex-row-reverse cursor-pointer" onClick={() => {
           props.lang === 'ar' ? props.handleClick('en') : props.handleClick('ar')
         }}>
             <span className="text-xl inline-block">{props.t("lang.1")}</span>

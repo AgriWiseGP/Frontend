@@ -1,6 +1,7 @@
 import React, { useState ,useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
+import sun from '../image/01d.webp'
 
 const Toggler = () => {
     const [dark, setDark]= useState(JSON.parse(window.localStorage.getItem("dark") || false))

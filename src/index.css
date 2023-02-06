@@ -6,6 +6,9 @@ body,
 html {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+  overflow-x: hidden;
+  scroll-padding-top: 2rem;
+  scroll-behavior: smooth;
 }
 input{
   border: 0 !important;
@@ -16,6 +19,13 @@ select:focus {
   outline: 0 !important;
   box-shadow: none !important;
 }
+html::-webkit-scrollbar-thumb,
 li.active{
   background-color:#17A267;
+}
+html::-webkit-scrollbar {
+  width: 0.7rem;
+}
+html::-webkit-scrollbar-track {
+  background: #0c5537 ;
 }

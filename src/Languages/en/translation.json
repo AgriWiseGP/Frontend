@@ -128,5 +128,17 @@
     },
     "noPhoto":{
       "1":" No photo chosen"
+    },
+    "cur-location":{
+      "1":"Enter current Location"
+    },
+    "type":{
+      "1":"Soil type"
+    },
+    "location":{
+      "1":"location"
+    },
+    "temp":{
+      "1":"temperature"
     }
 }

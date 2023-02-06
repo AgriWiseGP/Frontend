@@ -11,6 +11,7 @@ import Home from './Components/Home/Home'
 import NotFound from './Components/NotFound'
 import Toggler from './Components/Toggler'
 import CropSafety from './Components/Features/CropSafety'
+import CropRecommendation from './Components/Features/Recommendation'
 
 const App = () => {
   const { t, i18n } = useTranslation()
@@ -37,6 +38,7 @@ const App = () => {
           <Route element={<PrivateRoutes/>}>
             <Route path="/home" element={<Home t={t} lang={myLang} handleClick={handleClick}/>} exact />
             <Route path="/crop-safety" element={<CropSafety t={t} lang={myLang} />} exact/>
+            <Route path="/crop-recommendation" element={<CropRecommendation t={t} lang={myLang} />} exact/>         
           </Route>
           <Route element={<PrivateRouteLog/>}>
             <Route

@@ -1,5 +1,5 @@
 import React from 'react'
-import img from '../images/404.svg'
+import img from '../image/404.webp'
 import GoBack from './GoBack';
 const NotFound =()=>{
     return(

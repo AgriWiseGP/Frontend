@@ -1,7 +1,7 @@
 import React from 'react'
-import s1 from '../images/s1.jpg'
-import s2 from '../images/s4.jpg'
-import s3 from '../images/s3.jpg'
+import s1 from '../image/s1.webp'
+import s2 from '../image/s4.webp'
+import s3 from '../image/s3.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight} from '@fortawesome/free-solid-svg-icons'
 
@@ -55,7 +55,7 @@ const Carousel = (props) => {
         </div>
       </div>
     </div>
-    <div className="absolute z-30 flex gap-2 bottom-[20px] -translate-x-1/2 left-1/2">
+    <div className="absolute z-30 flex gap-2 bottom-[14px] -translate-x-1/2 left-1/2">
       <button
         type="button"
         className="w-3 h-3 rounded-full bg-white"

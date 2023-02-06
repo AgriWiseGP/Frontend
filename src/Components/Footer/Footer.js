@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import googleplay from '../../images/play.png'
-import img from '../../images/DOC.svg'
+import googleplay from '../../image/play.webp'
+import img from '../../image/DOC.webp'
 const Footer = (props) => {
   const links = [
     {
@@ -102,6 +102,9 @@ const Footer = (props) => {
       <div className="w-full h-16 bg-[#F7F2EC] dark:bg-[#111827] rtl:hidden">
         <div className="text-center text-black dark:text-white pt-4 font-bold">
           Copyright © 2023 <span className="text-green-950">AgriWise</span>
+          <div className='font-normal'>
+          <a href="https://storyset.com/people">People illustrations by Storyset</a>
+          </div>
         </div>
       </div>
     </div>
