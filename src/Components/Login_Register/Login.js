@@ -106,6 +106,7 @@ const Login = (props) => {
                   value={mail}
                   ref={userRef}
                   required
+                  name='email'
                 />
               </div>
               <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
@@ -121,6 +122,7 @@ const Login = (props) => {
                   onChange={(e) => setPwd(e.target.value)}
                   value={pwd}
                   required
+                  name='password'
                 />
                 <FontAwesomeIcon icon={showPass ? faEye : faEyeSlash} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPass(!showPass)}/>
               </div>

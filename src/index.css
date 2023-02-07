@@ -6,10 +6,9 @@ body,
 html {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  overflow-x: hidden;
-  scroll-padding-top: 2rem;
-  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
+
 input{
   border: 0 !important;
 }

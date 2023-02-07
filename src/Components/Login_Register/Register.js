@@ -106,6 +106,7 @@ const Register = (props) => {
                   className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   ref={userRef}
                   autoComplete="off"
+                  name='username'
                   onChange={(e) => setUser(e.target.value)}
                   value={user}
                   required
@@ -125,6 +126,7 @@ const Register = (props) => {
                   autoComplete="off"
                   onChange={(e) => setMail(e.target.value)}
                   value={mail}
+                  name="email"
                   required
                   aria-invalid={validMail ? "false" : "true"}
                   aria-describedby="mail"
@@ -141,6 +143,7 @@ const Register = (props) => {
                   className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   onChange={(e) => setPwd(e.target.value)}
                   value={pwd}
+                  name="password"
                   required
                   aria-invalid={validPwd ? "false" : "true"}
                   aria-describedby="pwdErr"
@@ -158,6 +161,7 @@ const Register = (props) => {
                   className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   onChange={(e) => setMatchPwd(e.target.value)}
                   value={matchPwd}
+                  name="match password"
                   required
                   aria-invalid={validMatch ? "false" : "true"}
                   aria-describedby="confirmErr"

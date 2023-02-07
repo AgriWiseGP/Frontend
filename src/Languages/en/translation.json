@@ -140,5 +140,17 @@
     },
     "temp":{
       "1":"temperature"
+    },
+    "crop-hint":{
+      "1":"Enter current cultivated crop"
+    },
+    "crop-name":{
+      "1":"Crop name"
+    },
+    "elements":{
+      "1":"Enter the proportions of elements"
+    },
+    "submit":{
+      "1":"Submit"
     }
 }

@@ -18,19 +18,19 @@ const Features = (props) => {
       img:imgfeature2,title:props.t("recommendation.title"),text:props.t("recommendation.text"),link:"/crop-recommendation"
     },
     {
-      img:imgfeature3,title:props.t("quality.title"),text:props.t("quality.text"),link:""
+      img:imgfeature3,title:props.t("quality.title"),text:props.t("quality.text"),link:"/soil-quality"
     },
     {
-      img:imgfeature4,title:props.t("risks.title"),text:props.t("risks.text"),link:"/"
+      img:imgfeature4,title:props.t("risks.title"),text:props.t("risks.text"),link:"/crop-risks"
     }, 
     {
-      img:imgfeature5,title:props.t("nursery.title"),text:props.t("nursery.text"),link:"/"
+      img:imgfeature5,title:props.t("nursery.title"),text:props.t("nursery.text"),link:"/nearest-nursery"
     },
     {
-      img: imgfeature6,title:props.t("lab.title"),text:props.t("lab.text"),link:"/"
+      img: imgfeature6,title:props.t("lab.title"),text:props.t("lab.text"),link:"/nearest-lab"
     },
     {
-      img: imgfeature7,title:props.t("fertilizer.title"),text:props.t("fertilizer.text"),link:"/"
+      img: imgfeature7,title:props.t("fertilizer.title"),text:props.t("fertilizer.text"),link:"/fertiizers"
     },
   ]
   return (
@@ -43,7 +43,7 @@ const Features = (props) => {
         <div className='md:text-start'>
           <h2 className='font-bold text-xl md:text-2xl my-4'>{feature.title}</h2>
           <p className='text-lg leading-6 w-full md:w-[400px] p-2 md:p-0 font-medium'>{feature.text}</p>
-          <button className="bg-[#17A267] md:ml-0 w-24 h-8 hover:bg-green-400 duration-300 md:mt-5 mt-7 rounded-lg text-white"
+          <button name='button' className="bg-[#17A267] md:ml-0 w-24 h-8 hover:bg-green-400 duration-300 md:mt-5 mt-7 rounded-lg text-white"
           onClick={()=>navigate(feature.link,{replace:true})}>
           {props.t("go.1")}
         </button>

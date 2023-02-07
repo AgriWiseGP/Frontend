@@ -12,8 +12,15 @@ import NotFound from './Components/NotFound'
 import Toggler from './Components/Toggler'
 import CropSafety from './Components/Features/CropSafety'
 import CropRecommendation from './Components/Features/Recommendation'
+import SoilQuality from './Components/Features/SoilQuality'
+import CropRisks from './Components/Features/CropRisks'
+import NearestLab from './Components/Features/NearestLab'
+import Nursery from './Components/Features/Nursery'
+import Fertilizers from './Components/Features/Fertilizers'
+import axios from 'axios'
 
 const App = () => {
+  // Language
   const { t, i18n } = useTranslation()
   let myLang = window.localStorage.getItem('i18nextLng').slice(0,2)
   const [lang, setLang] = useState(myLang)
@@ -29,6 +36,29 @@ const App = () => {
   } else {
     document.documentElement.setAttribute('dir', 'rtl')
   }
+  // location
+  const [locationData, setLocationdata] = useState({
+    city: ""  })
+  const [city, setCity] = useState("")
+  let apiKey = 'de455523b6c7d57f7708f7dcd5dfa29d'
+
+  function handleResponse(response) {
+    return setLocationdata({
+      city: response.data.name,
+    },
+    setCity(response.data.name)
+    )
+  }
+
+  function showPos(pos) {
+    let lat = pos.coords.latitude
+    let lon = pos.coords.longitude
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
+    axios.get(apiUrl).then(handleResponse)
+  }
+  function getLiveLocation() {
+    navigator.geolocation.getCurrentPosition(showPos)
+  }
   return (
     <div className="App rtl:font-noto ltr:font-[Poppins]">
       <div className='hidden'>
@@ -39,6 +69,11 @@ const App = () => {
             <Route path="/home" element={<Home t={t} lang={myLang} handleClick={handleClick}/>} exact />
             <Route path="/crop-safety" element={<CropSafety t={t} lang={myLang} />} exact/>
             <Route path="/crop-recommendation" element={<CropRecommendation t={t} lang={myLang} />} exact/>         
+            <Route path="/soil-quality" element={<SoilQuality t={t} lang={myLang} />} exact/>         
+            <Route path="/crop-risks" element={<CropRisks t={t} lang={myLang} />} exact/>         
+            <Route path="/nearest-lab" element={<NearestLab t={t} lang={myLang} getLiveLocation={getLiveLocation} city={city} setCity={setCity} locationData={locationData}/>} exact/>         
+            <Route path="/nearest-nursery" element={<Nursery t={t} lang={myLang} getLiveLocation={getLiveLocation} city={city} setCity={setCity} locationData={locationData}/>} exact/>         
+            <Route path="/fertiizers" element={<Fertilizers t={t} lang={myLang} getLiveLocation={getLiveLocation} city={city} setCity={setCity} locationData={locationData}/>} exact/>         
           </Route>
           <Route element={<PrivateRouteLog/>}>
             <Route

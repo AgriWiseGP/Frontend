@@ -83,7 +83,7 @@ const Carousel = (props) => {
       className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
       data-carousel-prev
     >
-      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-[#17A267] group-hover:bg-white/50 dark:group-hover:bg-green-400">
+      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-[#17A267] group-hover:bg-white/50 dark:group-hover:bg-green-400 dark:opacity-60">
       <FontAwesomeIcon
             icon={faAngleLeft}
             className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-[#111827]"
@@ -96,7 +96,7 @@ const Carousel = (props) => {
       className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
       data-carousel-next
     >
-      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-[#17A267] group-hover:bg-white/50 dark:group-hover:bg-green-400 ">
+      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-[#17A267] group-hover:bg-white/50 dark:group-hover:bg-green-400  dark:opacity-60 ">
       <FontAwesomeIcon
             icon={faAngleRight}
             className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-[#111827]"
