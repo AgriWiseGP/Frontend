@@ -73,6 +73,7 @@ const CropSafety = (props) => {
                 className="hidden duration-300 text-black dark:text-white focus:outline-none font-medium rounded-lg text-lg h-[43px] hover:dark:text-green-950 hover:text-green-950 text-center"
                 type="button"
                 name="submit"
+                id="submit"
               >
                 Submit
               </button>

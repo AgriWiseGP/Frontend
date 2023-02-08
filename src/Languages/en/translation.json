@@ -152,5 +152,14 @@
     },
     "submit":{
       "1":"Submit"
+    },
+    "who":{
+      "1":"Who we are"
+    },
+    "send":{
+      "1":"Get in touch"
+    },
+    "msg":{
+      "1":"Send us a message"
     }
 }

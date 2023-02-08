@@ -9,19 +9,19 @@ const Footer = (props) => {
       links: [
         {
           Name: props.t("home.1"),
-          link: '/',
+          link: 'home',
         },
         {
           Name: props.t("feature.1"),
-          link: '/features',
+          link: 'features',
         },
         {
           Name: props.t("about.1"),
-          link: '/about-us',
+          link: 'about',
         },
         {
           Name: props.t("contact.1"),
-          link: '/contact-us',
+          link: 'contact',
         },
       ],
     },
@@ -30,7 +30,7 @@ const Footer = (props) => {
       links: [
         {
           Name: props.t("team.1"),
-          link: '/',
+          link: 'about',
         },
       ],
     },
@@ -68,12 +68,12 @@ const Footer = (props) => {
                 <ul className="flex flex-col space-y-2 text-black dark:text-white">
                   {link.links.map((li, i) => (
                     <li key={i} className="flex ">
-                      <Link
-                        to={li.link}
-                        className="text-border inline-block w-full hover:text-green-950"
+                      <span
+                         onClick={()=>{document.getElementById(li.link).scrollIntoView({behavior:'smooth'})}}
+                        className="text-border inline-block  hover:text-green-950 cursor-pointer"
                       >
                         {li.Name}
-                      </Link>
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -90,7 +90,7 @@ const Footer = (props) => {
                   </span>
                 </li>
                 <li className="flex ">
-                  <span className="text-border inline-block w-full">
+                  <span className="text-border inline-block w-full break-all">
                     Agriwise@gmail.com
                   </span>
                 </li>
@@ -100,7 +100,7 @@ const Footer = (props) => {
         </div>
       </div>
       <div className="w-full h-16 bg-[#F7F2EC] dark:bg-[#111827] rtl:hidden">
-        <div className="text-center text-black dark:text-white pt-4 font-bold">
+        <div className="text-center text-black dark:text-white p-4 font-bold">
           Copyright © 2023 <span className="text-green-950">AgriWise</span>
           <div className='font-normal'>
           <a href="https://storyset.com/people">People illustrations by Storyset</a>

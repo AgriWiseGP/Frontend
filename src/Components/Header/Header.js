@@ -5,18 +5,22 @@ import eg from "../../image/eg1.webp"
 import logo from '../../image/DOC.webp'
 import united from '../../image/united-states.webp'
 import Toggler from '../Toggler'
+import {auth} from '../Login_Register/PrivateRoutes'
+import { useNavigate } from 'react-router-dom'
+
 const Header = (props) => {
   let Links = [
     { name: props.t("home.1") , section:"home"},
     { name: props.t("feature.1"), section:"features"},
-    { name: props.t("about.1"), section:"home" },
-    { name: props.t("contact.1"), section:"home"},
+    { name: props.t("about.1"), section:"about" },
+    { name: props.t("contact.1"), section:"contact"},
   ]
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const onLogoutSuccess = () => {
-    console.log('you have signed out successfully')
-    window.localStorage.setItem('token',false);
-    window.location.reload(true);}
+    auth.token ? window.localStorage.setItem('token',false) : navigate('/login-register', { replace: true });
+    window.location.reload(true);
+  }
     useEffect(() => {
         if( document.querySelectorAll(".active").length===0){
         document.querySelectorAll("li")[0].classList.add("active")}
@@ -50,7 +54,7 @@ const Header = (props) => {
           } md:flex`} 
         >
           {Links.map((link) => (
-            <li key={link.name} className='text-[20px] rounded-sm	 p-2 w-full md:w-auto text-gray-800 dark:text-white cursor-pointer hover:bg-green-950 transition-all duration-500' onClick={(e)=>{e.preventDefault();
+            <li key={link.name} className='text-[20px] rounded-sm	 p-2 w-full md:w-auto text-gray-800 dark:text-white cursor-pointer hover:bg-green-950 hover:px-4 transition-all duration-500' onClick={(e)=>{e.preventDefault();
              document.getElementById(link.section).scrollIntoView({
                 behavior:'smooth',
             }) ;setOpen(!open);handleActive(e)}}>
@@ -74,7 +78,7 @@ const Header = (props) => {
             </div>
           </li>
           <button onClick={onLogoutSuccess} className="bg-[#17A267] m-2 rtl:mr-2 md:rtl:mr-0 md:m-0 w-24 h-11 text-[15px] text-white duration-500 px-6 py-2 rtl:p-0 hover:bg-green-400 rounded ">
-          {props.t("logout.1")}
+          {auth.token ? props.t("logout.1") : props.t("login.1")}
           </button>
         </ul>
       </div>

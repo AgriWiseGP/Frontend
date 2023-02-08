@@ -66,7 +66,6 @@ const App = () => {
       </div>
         <Routes>
           <Route element={<PrivateRoutes/>}>
-            <Route path="/home" element={<Home t={t} lang={myLang} handleClick={handleClick}/>} exact />
             <Route path="/crop-safety" element={<CropSafety t={t} lang={myLang} />} exact/>
             <Route path="/crop-recommendation" element={<CropRecommendation t={t} lang={myLang} />} exact/>         
             <Route path="/soil-quality" element={<SoilQuality t={t} lang={myLang} />} exact/>         
@@ -75,9 +74,10 @@ const App = () => {
             <Route path="/nearest-nursery" element={<Nursery t={t} lang={myLang} getLiveLocation={getLiveLocation} city={city} setCity={setCity} locationData={locationData}/>} exact/>         
             <Route path="/fertiizers" element={<Fertilizers t={t} lang={myLang} getLiveLocation={getLiveLocation} city={city} setCity={setCity} locationData={locationData}/>} exact/>         
           </Route>
+          <Route path="/" element={<Home t={t} lang={myLang} handleClick={handleClick}/>} exact />
           <Route element={<PrivateRouteLog/>}>
             <Route
-              path="/"
+              path="/login-register"
               element={<LoginOrRegister t={t} lang={myLang} />}
             />
             <Route path="register" element={<Register t={t} lang={myLang} />} />

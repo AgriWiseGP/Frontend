@@ -66,6 +66,7 @@ const NearestLab = (props) => {
                   className="bg-[#17A267] w-32 text-[18px] text-white duration-500 hover:bg-green-400 mt-5 mx-auto md:mx-0 px-4 py-2 rounded block transform hover:translate-y-1 transition-all duration-500 cursor-pointer disabled:opacity-50 disabled:pointer-events-none"
                   type="submit"
                   name="submit"
+                  id="submit"
                   disabled={props.city === '' ? true : false}
                   onClick={handleSubmit}
                 >

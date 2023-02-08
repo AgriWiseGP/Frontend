@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Footer from '../Footer/Footer'
 import s4 from '../../image/s4.webp'
-import imgfeature3 from '../../image/Mask Group 6.webp'
+import imgfeature3 from '../../image/lamp.webp'
 import imgphone from '../../image/Environmental study-amico.webp'
 import GoBack from '../GoBack'
 import Modal from './Modal'
@@ -80,6 +80,7 @@ const CropSafety = (props) => {
                   className="hidden duration-300 mx-2 text-black dark:text-white focus:outline-none font-medium rounded-lg text-lg h-[43px] hover:dark:text-green-950 hover:text-green-950 text-center"
                   type="button"
                   name="submit"
+                  id="submit"
                 >
                   {props.t('submit.1')}
                 </button>
@@ -92,7 +93,7 @@ const CropSafety = (props) => {
               <button
                 onClick={() => setHide(true)}
                 name="elements"
-                className="bg-[#17A267] h-[43px] min-w-[200px] text-[18px] text-white duration-500 py-2 px-8 hover:bg-green-400 rounded"
+                className="bg-[#17A267] min-h-[43px] mx-4 md:mx-0 min-w-[200px] text-[18px] text-white duration-500 py-2 px-8 hover:bg-green-400 rounded"
               >
                 {props.t('elements.1')}
               </button>
