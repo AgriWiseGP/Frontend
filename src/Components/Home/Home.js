@@ -23,7 +23,7 @@ const Home = (props) => {
   return (
     <div>
       <div className={`bg-[#F7F2EC] dark:bg-[#111827]`} id="home">
-        <Header t={props.t} lang={props.lang} handleClick={props.handleClick} />
+        <Header t={props.t} lang={props.lang} handleClick={props.handleClick} ac="home"/>
         <Carousel t={props.t} lang={props.lang} />
         <Features t={props.t} lang={props.lang} />
         <About t={props.t} lang={props.lang} />

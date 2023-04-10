@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Footer from '../Footer/Footer'
-import GoBack from '../GoBack'
 import s3 from '../../image/s3.webp'
 import imgfeature2 from '../../image/Mask Group 5.webp'
 import imgphone from '../../image/location.webp'
@@ -8,31 +7,56 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faSearch } from '@fortawesome/free-solid-svg-icons'
 import Modal from './Modal'
+import Header from '../Header/Header'
+
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgxNDIyMjUyLCJqdGkiOiI0YjZhM2I4ZjhhZjc0NjBkOWUxN2MzMzZhMjJkNmU2NiIsInVzZXJfaWQiOjUzfQ.qMfwgCdXsWLjkhvVVkRtBb0MexHDTmDxTsyD8CcNjtA';
+
 
 const CropRecommendation = (props) => {
   const [weatherData, setWeatherdata] = useState({
     ready: false,
     temperature: '0',
   })
-  const [city, setCity] = useState("")
+  const [city, setCity] = useState('')
   const [type, setType] = useState('')
   let apiKey = 'de455523b6c7d57f7708f7dcd5dfa29d'
 
   function handleResponse(response) {
-    return setWeatherdata({
-      ready: true,
-      coordinates: response.data.coord,
-      temperature: response.data.main.temp,
-      humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
-      city: response.data.name,
-      pressure: response.data.main.pressure,
-    },
-    setCity(response.data.name))
+    return setWeatherdata(
+      {
+        ready: true,
+        coordinates: response.data.coord,
+        temperature: response.data.main.temp,
+        humidity: response.data.main.humidity,
+        wind: response.data.wind.speed,
+        city: response.data.name,
+        pressure: response.data.main.pressure,
+      },
+      setCity(response.data.name),
+    )
   }
   function handleSubmit(e) {
     e.preventDefault()
-    getWeather()
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    axios
+      .post(
+        'https://jsonplaceholder.typicode.com/posts',
+        {
+          n: 101,
+          p: 17,
+          k: 47,
+          temperature: 29.49401389,
+          humidity: 94.72981338,
+          ph: 6.185053234,
+          rainfall: 26.30820876,
+        },
+      )
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   function getWeather() {
@@ -50,7 +74,7 @@ const CropRecommendation = (props) => {
   }
   return (
     <>
-      <GoBack />
+      <Header t={props.t} ac="features" />
       <div className="bg-[#F7F2EC] dark:bg-[#111827]">
         <img
           src={s3}
@@ -137,7 +161,7 @@ const CropRecommendation = (props) => {
                 </button>
               </div>
             </div>
-            <Modal title={props.t('recommendation.title')}/>
+            <Modal title={props.t('recommendation.title')} />
           </div>
           <img src={imgphone} alt="" className="w-[300px] hidden md:block" />
         </div>

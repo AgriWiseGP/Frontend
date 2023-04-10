@@ -2,19 +2,21 @@ import React from 'react'
 import fertilizer from '../../image/lab2.webp'
 import imgfeature7 from '../../image/Mask Group 13.webp'
 import Footer from '../Footer/Footer'
-import GoBack from '../GoBack'
 import imgphone from '../../image/Location tracking.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import Modal from './Modal'
+import Header from '../Header/Header'
+// import axios from '../axios'
 
 const Fertilizers = (props) => {
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
+    // axios.get("soil-fertilizer/2").then((res) =>console.log(res))
   }
   return (
     <>
-      <GoBack />
+      <Header t={props.t} ac="features"/>
       <div className="bg-[#F7F2EC] dark:bg-[#111827]">
         <img
           src={fertilizer}

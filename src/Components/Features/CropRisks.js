@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import Footer from '../Footer/Footer'
-import GoBack from '../GoBack'
 import croprisksimg from '../../image/nursery.webp'
 import imgfeature4 from '../../image/Mask Group 7.webp'
 import treat from '../../image/treat.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSeedling } from '@fortawesome/free-solid-svg-icons'
 import Modal from './Modal'
+import Header from '../Header/Header'
 const CropSafety = (props) => {
   const [cropname, setCropname] = useState('')
   return (
     <>
-      <GoBack />
+      <Header t={props.t} ac="features"/>
       <div className="bg-[#F7F2EC] dark:bg-[#111827]">
         <img
           src={croprisksimg}

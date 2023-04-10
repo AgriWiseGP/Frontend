@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser, faLock, faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons' 
 import { useNavigate } from 'react-router-dom';
 import GoBack from '../GoBack';
+import axios from 'axios'
 
+const REGISTER_URL = "/auth/users/";
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,24}$/;
 // const PWD_REGEX = /^[A-z][A-z0-9-_]{7,24}$/;
 // const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -17,15 +19,15 @@ const Register = (props) => {
     const userRef = useRef();
     // const errRef = useRef();
     const navigate = useNavigate();
-    const [user, setUser] = useState('');
+    const [username, setUser] = useState('');
     const [validName, setValidName] = useState(false);
     // const [userFocus, setUserFocus] = useState(false);
     
-    const [mail, setMail] = useState('');
+    const [email, setMail] = useState('');
     const [validMail, setValidMail] = useState(false);
     // const [mailFocus, setMailFocus] = useState(false);
 
-    const [pwd, setPwd] = useState('');
+    const [password, setPwd] = useState('');
     const [validPwd, setValidPwd] = useState(false);
     // const [pwdFocus, setPwdFocus] = useState(false);
 
@@ -38,39 +40,65 @@ const Register = (props) => {
     const [showPassTwo, setShowPassTwo] =useState(false);
 
     const [errMsg, setErrMsg] = useState('');
-    // const [success, setSuccess] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     useEffect(() => {
         userRef.current.focus();
     }, [])
 
     useEffect(() => {
-        setValidName(USER_REGEX.test(user));
-    }, [user])
+        setValidName(USER_REGEX.test(username));
+    }, [username])
 
     useEffect(() => {
-        setValidMail(Mail_REGEX.test(mail));
-    }, [mail])
+        setValidMail(Mail_REGEX.test(email));
+    }, [email])
 
     useEffect(() => {
-        setValidPwd(PWD_REGEX.test(pwd));
-        setValidMatch(pwd === matchPwd);
-    }, [pwd, matchPwd])
+        setValidPwd(PWD_REGEX.test(password));
+        setValidMatch(password === matchPwd);
+    }, [password, matchPwd])
 
     useEffect(() => {
         setErrMsg('');
-    }, [user, mail, pwd, matchPwd])
+    }, [username, email, password, matchPwd])
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
-      const v1 = USER_REGEX.test(user);
-      const v2 = PWD_REGEX.test(pwd);
-      const v3 = Mail_REGEX.test(pwd);
-      if (!v1 || !v2 || !v3) {
-          setErrMsg("Invalid Entry");
-          return;
+      const v1 = USER_REGEX.test(username);
+      const v2 = PWD_REGEX.test(password);
+      if (!v1 || !v2) {
+        setErrMsg("Invalid Entry");
+        return;
       }
-    }
+    
+      try {
+        const response = await axios.post(
+          "https://7e80-156-201-66-153.ngrok-free.app/auth/users/",
+          JSON.stringify({ username, email, password }),
+          {
+            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+          }
+        );
+        console.log(response);
+        setSuccess(true);
+        setUser("");
+        setPwd("");
+        setMail("")
+        setMatchPwd("");
+        window.localStorage.setItem('token',true);
+        window.location.reload(true);
+      } catch (err) {
+        if (!err?.response) {
+          setErrMsg("No Server Response");
+        } else if (err.response?.status === 409) {
+          setErrMsg("Username Taken");
+        } else {
+          setErrMsg("Registration Failed");
+        }
+      }
+    };
     return(
   <div>
       <img
@@ -82,7 +110,6 @@ const Register = (props) => {
       <div className="h-screen flex flex-col">
       <GoBack/>
       <div className="grow w-full flex justify-around items-center rtl:flex-row-reverse">
-
         <div className="hidden md:ml-20 md:block w-50 text-center">
         <img
             src={img}
@@ -98,6 +125,8 @@ const Register = (props) => {
               >
                 {props.t("newAccount.1")}
               </h2>
+              <div className='text-red-500'>{errMsg}</div>
+              
               <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
                 <FontAwesomeIcon icon={faUser} className="text-xl w-100 text-green-950"/>
                 <input
@@ -108,13 +137,13 @@ const Register = (props) => {
                   autoComplete="off"
                   name='username'
                   onChange={(e) => setUser(e.target.value)}
-                  value={user}
+                  value={username}
                   required
                   aria-invalid={validName ? "false" : "true"}
                   aria-describedby="userErr"
                 />
               </div>
-              <p  id="userErr" className={`${user && !validName ? "text-red-500" : "hidden"} mt-2 ltr:text-left rtl:text-right w-full`}>
+              <p  id="userErr" className={`${username && !validName ? "text-red-500" : "hidden"} mt-2 ltr:text-left rtl:text-right w-full`}>
                 {props.t("usernameErr.1")}
               </p>
               <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
@@ -125,14 +154,14 @@ const Register = (props) => {
                   className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   autoComplete="off"
                   onChange={(e) => setMail(e.target.value)}
-                  value={mail}
+                  value={email}
                   name="email"
                   required
                   aria-invalid={validMail ? "false" : "true"}
                   aria-describedby="mail"
                 />
               </div>
-              <p  id="mail" className={`${mail && !validMail ? "text-red-500" : "hidden"} mt-2 ltr:text-left rtl:text-right w-full`}>
+              <p  id="mail" className={`${email && !validMail ? "text-red-500" : "hidden"} mt-2 ltr:text-left rtl:text-right w-full`}>
                 {props.t("mailErr.1")}
               </p>
               <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
@@ -142,7 +171,7 @@ const Register = (props) => {
                   placeholder={props.t("password.1")}
                   className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   onChange={(e) => setPwd(e.target.value)}
-                  value={pwd}
+                  value={password}
                   name="password"
                   required
                   aria-invalid={validPwd ? "false" : "true"}
@@ -150,7 +179,7 @@ const Register = (props) => {
                 />
                 <FontAwesomeIcon icon={showPass ? faEye : faEyeSlash} className="text-gray-700 dark:text-white lg:ltr:ml-5 lg:rtl:mr-5 cursor-pointer" onClick={()=>setShowPass(!showPass)}/>
               </div>
-              <p id="pwdErr" className={`${pwd && !validPwd ?  "text-red-500" : "hidden"} ltr:text-left mt-2 rtl:text-right w-full`}>
+              <p id="pwdErr" className={`${password && !validPwd ?  "text-red-500" : "hidden"} ltr:text-left mt-2 rtl:text-right w-full`}>
                 {props.t("passErr.1")}
               </p>
               <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">

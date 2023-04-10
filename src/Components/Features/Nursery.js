@@ -1,12 +1,12 @@
 import React from 'react'
 import Footer from '../Footer/Footer'
-import GoBack from '../GoBack'
 import nearestNursery from '../../image/theNearestNursery.webp'
 import imgfeature5 from '../../image/Mask Group 8.webp'
 import imgphone from '../../image/Location tracking.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import Modal from './Modal'
+import Header from '../Header/Header'
 
 const Nursery = (props) => {
   function handleSubmit(e) {
@@ -14,7 +14,7 @@ const Nursery = (props) => {
   }
   return (
     <>
-      <GoBack />
+      <Header t={props.t} ac="features"/>
       <div className="bg-[#F7F2EC] dark:bg-[#111827]">
         <img
           src={nearestNursery}

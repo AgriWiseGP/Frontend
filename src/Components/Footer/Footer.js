@@ -9,19 +9,19 @@ const Footer = (props) => {
       links: [
         {
           Name: props.t("home.1"),
-          link: 'home',
+          link: '/#home',
         },
         {
           Name: props.t("feature.1"),
-          link: 'features',
+          link: '/#features',
         },
         {
           Name: props.t("about.1"),
-          link: 'about',
+          link: '/#about',
         },
         {
           Name: props.t("contact.1"),
-          link: 'contact',
+          link: '/#contact',
         },
       ],
     },
@@ -30,7 +30,7 @@ const Footer = (props) => {
       links: [
         {
           Name: props.t("team.1"),
-          link: 'about',
+          link: '/#about',
         },
       ],
     },
@@ -68,12 +68,11 @@ const Footer = (props) => {
                 <ul className="flex flex-col space-y-2 text-black dark:text-white">
                   {link.links.map((li, i) => (
                     <li key={i} className="flex ">
-                      <span
-                         onClick={()=>{document.getElementById(li.link).scrollIntoView({behavior:'smooth'})}}
-                        className="text-border inline-block  hover:text-green-950 cursor-pointer"
+                      <Link to={li.link}
+                        className="text-border inline-block hover:text-green-950 cursor-pointer"
                       >
                         {li.Name}
-                      </span>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -98,6 +97,7 @@ const Footer = (props) => {
             </div>
           </div>
         </div>
+
       </div>
       <div className="w-full h-16 bg-[#F7F2EC] dark:bg-[#111827] rtl:hidden">
         <div className="text-center text-black dark:text-white p-4 font-bold">

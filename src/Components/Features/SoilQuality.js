@@ -3,8 +3,8 @@ import Footer from '../Footer/Footer'
 import s4 from '../../image/s4.webp'
 import imgfeature3 from '../../image/lamp.webp'
 import imgphone from '../../image/Environmental study-amico.webp'
-import GoBack from '../GoBack'
 import Modal from './Modal'
+import Header from '../Header/Header'
 const CropSafety = (props) => {
   const handleChange = (e) => {
     const [file] = e.target.files
@@ -20,7 +20,7 @@ const CropSafety = (props) => {
   const [hide, setHide] = useState(false)
   return (
     <>
-      <GoBack />
+      <Header t={props.t} ac="features"/>
       <div className="bg-[#F7F2EC] dark:bg-[#111827]">
         <img
           src={s4}

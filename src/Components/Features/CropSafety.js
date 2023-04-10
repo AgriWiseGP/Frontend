@@ -1,10 +1,10 @@
 import React from 'react'
 import Footer from '../Footer/Footer'
-import GoBack from '../GoBack'
 import s1 from '../../image/s1.webp'
 import imgfeature1 from '../../image/Mask Group 1.webp'
 import imgphone from '../../image/Group 66.webp'
 import Modal from './Modal'
+import Header from '../Header/Header'
 const CropSafety = (props) => {
   const handleChange = (e) => {
     const [file] = e.target.files
@@ -19,7 +19,7 @@ const CropSafety = (props) => {
   }
   return (
     <>
-      <GoBack />
+    <Header t={props.t}ac="features"/>
       <div className="bg-[#F7F2EC] dark:bg-[#111827]">
         <img
           src={s1}
@@ -68,14 +68,14 @@ const CropSafety = (props) => {
               >{props.t("noPhoto.1")}<span className='text-red-700'>*</span></div>
               </div>
               <button
-                data-modal-target="defaultModal"
-                data-modal-toggle="defaultModal"
+                // data-modal-target="defaultModal"
+                // data-modal-toggle="defaultModal"
                 className="hidden duration-300 text-black dark:text-white focus:outline-none font-medium rounded-lg text-lg h-[43px] hover:dark:text-green-950 hover:text-green-950 text-center"
                 type="button"
                 name="submit"
                 id="submit"
               >
-                Submit
+                {props.t("submit.1")}
               </button>
             </div>
             <Modal title={props.t("safety.title")}/>
