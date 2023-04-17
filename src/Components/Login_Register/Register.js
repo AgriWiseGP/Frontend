@@ -74,7 +74,7 @@ const Register = (props) => {
     
       try {
         const response = await axios.post(
-          "https://7e80-156-201-66-153.ngrok-free.app/auth/users/",
+          "https://5b49-41-35-222-85.ngrok-free.app/auth/users/",
           JSON.stringify({ username, email, password }),
           {
             headers: { "Content-Type": "application/json" },
@@ -85,10 +85,11 @@ const Register = (props) => {
         setSuccess(true);
         setUser("");
         setPwd("");
-        setMail("")
+        setMail("");
         setMatchPwd("");
-        window.localStorage.setItem('token',true);
-        window.location.reload(true);
+        // window.localStorage.setItem('token',true);
+        // window.location.reload(true);
+        navigate('/email', { replace: true })
       } catch (err) {
         if (!err?.response) {
           setErrMsg("No Server Response");

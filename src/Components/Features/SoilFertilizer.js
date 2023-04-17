@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Footer from '../Footer/Footer'
-import s3 from '../../image/s3.webp'
-import imgfeature2 from '../../image/Mask Group 5.webp'
+import s3 from '../../image/soil1.jpeg'
+import imgfeature7 from '../../image/soil.jpeg'
 import imgphone from '../../image/location.webp'
 import axios from 'axios'
 import axiosInstance from '../axios'
@@ -10,7 +10,7 @@ import { faLocationDot, faSearch } from '@fortawesome/free-solid-svg-icons'
 import Popup from './Modal'
 import Header from '../Header/Header'
 
-const CropRecommendation = (props) => {
+const SoilFertilizer = (props) => {
   const [weatherData, setWeatherdata] = useState({
     ready: false,
     temperature: '0',
@@ -20,12 +20,13 @@ const CropRecommendation = (props) => {
   const [rainfall, setRainfall] = useState('')
   const [temperature, setTemp] = useState('')
   const [humidity, setHum] = useState('')
-  const [n, setN] = useState('')
-  const [p, setP] = useState('')
-  const [k, setK] = useState('')
-  const [ph, setPH] = useState('')
-  const [res, setRes] = useState('')
-  // const [show, setShow] = useState(false);
+  const [Nratio, setNratio] = useState('')
+  const [Pratio, setPratio] = useState('')
+  const [Kratio, setKratio] = useState('')
+  const [PH, setPH] = useState('')
+  const [crop_name, setCrop] = useState("")
+  const [soil_name, setSoil] = useState("")
+  const [res, setRes] = useState("")
   let apiKey = 'de455523b6c7d57f7708f7dcd5dfa29d'
 
   const handleResponse=(response)=> {
@@ -47,23 +48,29 @@ const CropRecommendation = (props) => {
     // setShow(true)
     // console.log(show);
     axiosInstance
-      .post('crop_recommendation/crop/', {
-        n,
-        p,
-        k,
-        temperature,
-        humidity,
-        ph,
-        rainfall,
+      .post('soil-fertilizer/', {
+        "crop_name": crop_name,
+        "soil_name": soil_name,
+        "soil_analysis":{
+            "Pratio":Pratio, 
+            "Kratio":Kratio, 
+            "Nratio":Nratio, 
+            "PH":PH
+        },
+        "weather_conditions":{
+            "temperature": temperature,
+            "humidity": humidity,
+            "rainfall": rainfall
+        }
       })
       .then((response) => {
-        setRes(response.data.data.name)
+        setRes(response.data.target)
       })
       .catch((error) => {
         console.log(error)
       })
   }
-
+  
   const getWeather=()=> {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
     axios.get(apiUrl).then(handleResponse)
@@ -94,22 +101,22 @@ const CropRecommendation = (props) => {
         <div className="relative h-[270px] sm:h-[400px]">
           <div className="absolute z-30 text-white text-center bg-opacity-50 w-full h-full bg-gray-900 flex justify-center items-center ">
             <h1 className="text-2xl md:text-4xl text-white font-bold">
-              {props.t('recommendation.title')}
+              {props.t('soil-fertilizer.title')}
             </h1>
           </div>
         </div>
         <img
-          src={imgfeature2}
+          src={imgfeature7}
           alt=""
           className="relative h-48 w-48 sm:w-56 sm:h-56 rounded-full shadow-lg mx-auto -translate-y-1/2 top-1/2 z-50 border-[5px] border-[#F7F2EC] dark:border-[#111827]"
         />
         <div className="flex justify-around items-center text-center md:text-left md:rtl:text-right mt-[-40px] pb-[30px] px-4">
           <div>
             <h1 className="md:text-2xl text-xl text-black text-[#17A267] font-bold ">
-              {props.t('recommendation.title')}
+              {props.t('soil-fertilizer.title')}
             </h1>
             <p className="w-full sm:w-[350px] text-lg mx-auto md:mx-0 text-black dark:text-white p-4 md:px-0">
-              {props.t('recommendation.text')}
+              {props.t('soil-fertilizer.text')}
             </p>
             <div className="flex justify-center md:justify-start">
               <div>
@@ -169,11 +176,33 @@ const CropRecommendation = (props) => {
                 </div>
                 <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
                   <input
+                    type="text"
+                    required
+                    name="soul-name"
+                    onChange={(e) => setSoil(e.target.value)}
+                    value={soil_name}
+                    className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                    placeholder={props.t("type.1")}
+                  />
+                </div>
+                <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
+                  <input
+                    type="text"
+                    required
+                    name="crop"
+                    onChange={(e) => setCrop(e.target.value)}
+                    value={crop_name}
+                    className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
+                    placeholder={props.t("crop-name.1")}
+                  />
+                </div>
+                <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
+                  <input
                     type="number"
                     required
                     name="n"
-                    onChange={(e) => setN(e.target.value)}
-                    value={n}
+                    onChange={(e) => setNratio(e.target.value)}
+                    value={Nratio}
                     className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                     placeholder={props.t("soil.n")}
                   />
@@ -183,8 +212,8 @@ const CropRecommendation = (props) => {
                     type="number"
                     required
                     name="P"
-                    onChange={(e) => setP(e.target.value)}
-                    value={p}
+                    onChange={(e) => setPratio(e.target.value)}
+                    value={Pratio}
                     className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                     placeholder={props.t("soil.p")}
                   />
@@ -194,8 +223,8 @@ const CropRecommendation = (props) => {
                     type="number"
                     required
                     name="k"
-                    onChange={(e) => setK(e.target.value)}
-                    value={k}
+                    onChange={(e) => setKratio(e.target.value)}
+                    value={Kratio}
                     className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                     placeholder={props.t("soil.k")}
                   />
@@ -206,7 +235,7 @@ const CropRecommendation = (props) => {
                     required
                     name="ph"
                     onChange={(e) => setPH(e.target.value)}
-                    value={ph}
+                    value={PH}
                     className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                     placeholder={props.t("soil.ph")}
                   />
@@ -219,7 +248,7 @@ const CropRecommendation = (props) => {
                   name="submit"
                   id="submit"
                   disabled={
-                    n === '' || p === '' || k === '' || ph === '' || city === ''
+                    Nratio === '' || Pratio === '' || Kratio === '' || PH === '' || city === ''
                       ? true
                       : false
                   }
@@ -229,7 +258,7 @@ const CropRecommendation = (props) => {
                 </button>
               </div>
             </div>
-            <Popup title={props.t('recommendation.title')} content={`${res}`} t={props.t} lang={props.lang}/>
+            <Popup title={props.t('soil-fertilizer.title')} content={`${res}`} t={props.t} lang={props.lang}/>
           </div>
           <img src={imgphone} alt="" className="w-[300px] hidden md:block" />
         </div>
@@ -239,4 +268,4 @@ const CropRecommendation = (props) => {
   )
 }
 
-export default CropRecommendation
+export default SoilFertilizer

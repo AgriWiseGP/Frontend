@@ -69,7 +69,7 @@ const Footer = (props) => {
                   {link.links.map((li, i) => (
                     <li key={i} className="flex ">
                       <Link to={li.link}
-                        className="text-border inline-block hover:text-green-950 cursor-pointer"
+                        className="text-border inline-block hover:text-green-950 cursor-pointer transition-all duration-500"
                       >
                         {li.Name}
                       </Link>
@@ -84,14 +84,14 @@ const Footer = (props) => {
               </h3>
               <ul className=" flex flex-col space-y-2 text-black dark:text-white rtl:font-sans">
                 <li className="flex ">
-                  <span className="text-border inline-block w-full">
+                  <a href='https://wa.me/+201212681545' className="text-border inline-block w-full">
                     01010101010
-                  </span>
+                  </a>
                 </li>
                 <li className="flex ">
-                  <span className="text-border inline-block w-full break-all">
-                    Agriwise@gmail.com
-                  </span>
+                  <a href='mailto:agriwise5@gmail.com' className="text-border inline-block w-full break-all">
+                    agriwise5@gmail.com
+                  </a>
                 </li>
               </ul>
             </div>

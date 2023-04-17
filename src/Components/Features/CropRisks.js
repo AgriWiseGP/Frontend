@@ -11,7 +11,7 @@ const CropSafety = (props) => {
   const [cropname, setCropname] = useState('')
   return (
     <>
-      <Header t={props.t} ac="features"/>
+      <Header t={props.t} lang={props.lang} ac="features" handleClick={props.handleClick}/>
       <div className="bg-[#F7F2EC] dark:bg-[#111827]">
         <img
           src={croprisksimg}
@@ -73,7 +73,7 @@ const CropSafety = (props) => {
                 {props.t('go.1')}
               </button>
             </div>
-            <Modal title={props.t('risks.title')} />
+            <Modal title={props.t('risks.title')} content="" t={props.t} lang={props.lang}/>
           </div>
           <img src={treat} alt="" className="w-[300px] hidden md:block" />
         </div>

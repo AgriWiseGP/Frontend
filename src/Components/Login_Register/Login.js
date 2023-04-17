@@ -5,7 +5,7 @@ import imag from '../../image/wavy.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock, faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import GoBack from '../GoBack'
-
+import axios from '../axios'
 const Login = (props) => {
   const navigate = useNavigate()
 
@@ -14,9 +14,9 @@ const Login = (props) => {
 
   const [hide, setHide] = useState(true)
 
-  const [mail, setMail] = useState('')
+  const [email, setMail] = useState('')
 
-  const [pwd, setPwd] = useState('')
+  const [password, setPwd] = useState('')
 
   const [showPass, setShowPass] =useState(false);
 
@@ -29,13 +29,21 @@ const Login = (props) => {
 
   useEffect(() => {
     setErrMsg('')
-  }, [mail, pwd])
+  }, [email, password])
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // navigate('/home', { replace: true });
-    window.localStorage.setItem('token',true);
-    window.location.reload(true);
+    // window.localStorage.setItem('token',true);
+    axios.post('https://5b49-41-35-222-85.ngrok-free.app/auth/jwt/create',
+      {email, password}
+    ).then((response) => {
+      console.log(response)
+      window.localStorage.setItem('token',true);
+      window.location.reload(true);
+    })
+    .catch((error) => {
+      console.log(error)
+    });
   }
   return (
     <div>
@@ -103,7 +111,7 @@ const Login = (props) => {
                   className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-11/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   autoComplete="off"
                   onChange={(e) => setMail(e.target.value)}
-                  value={mail}
+                  value={email}
                   ref={userRef}
                   required
                   name='email'
@@ -120,7 +128,7 @@ const Login = (props) => {
                   placeholder={props.t('password.1')}
                   className="ltr:pl-8 rtl:pr-8 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
                   onChange={(e) => setPwd(e.target.value)}
-                  value={pwd}
+                  value={password}
                   required
                   name='password'
                 />

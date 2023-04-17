@@ -19,7 +19,7 @@ const CropSafety = (props) => {
   }
   return (
     <>
-    <Header t={props.t}ac="features"/>
+    <Header t={props.t} lang={props.lang} ac="features" handleClick={props.handleClick}/>
       <div className="bg-[#F7F2EC] dark:bg-[#111827]">
         <img
           src={s1}
@@ -68,8 +68,8 @@ const CropSafety = (props) => {
               >{props.t("noPhoto.1")}<span className='text-red-700'>*</span></div>
               </div>
               <button
-                // data-modal-target="defaultModal"
-                // data-modal-toggle="defaultModal"
+                data-modal-target="defaultModal"
+                data-modal-toggle="defaultModal"
                 className="hidden duration-300 text-black dark:text-white focus:outline-none font-medium rounded-lg text-lg h-[43px] hover:dark:text-green-950 hover:text-green-950 text-center"
                 type="button"
                 name="submit"
@@ -78,7 +78,7 @@ const CropSafety = (props) => {
                 {props.t("submit.1")}
               </button>
             </div>
-            <Modal title={props.t("safety.title")}/>
+            <Modal title={props.t("safety.title")} content="" t={props.t} lang={props.lang}/>
           </div>
           <img
             src={imgphone}

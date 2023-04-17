@@ -18,6 +18,11 @@ import NearestLab from './Components/Features/NearestLab'
 import Nursery from './Components/Features/Nursery'
 import Fertilizers from './Components/Features/Fertilizers'
 import axios from 'axios'
+import EmailActivation from './Components/Login_Register/EmailActivation'
+import ResetPassConfirm from './Components/Login_Register/ResetPassConfirm'
+import SoilFertilizer from './Components/Features/SoilFertilizer'
+import Email from './Components/Login_Register/Email'
+import SoilType from './Components/Features/SoilType'
 
 const App = () => {
   const location = useLocation();
@@ -35,6 +40,7 @@ const App = () => {
   const { t, i18n } = useTranslation()
   let myLang = window.localStorage.getItem('i18nextLng').slice(0,2)
   const [lang, setLang] = useState(myLang)
+  
   const handleClick = (language) => {
     i18n.changeLanguage(language)
     console.log(lang === 'en')
@@ -78,13 +84,15 @@ const App = () => {
       </div>
         <Routes>
           <Route element={<PrivateRoutes/>}>
-            <Route path="/crop-safety" element={<CropSafety  t={t} lang={myLang} />} exact/>
-            <Route path="/crop-recommendation" element={<CropRecommendation  t={t} lang={myLang} />} exact/>         
-            <Route path="/soil-quality" element={<SoilQuality  t={t} lang={myLang} />} exact/>         
-            <Route path="/crop-risks" element={<CropRisks  t={t} lang={myLang} />} exact/>         
-            <Route path="/nearest-lab" element={<NearestLab  t={t} lang={myLang} getLiveLocation={getLiveLocation} city={city} setCity={setCity} locationData={locationData}/>} exact/>         
-            <Route path="/nearest-nursery" element={<Nursery  t={t} lang={myLang} getLiveLocation={getLiveLocation} city={city} setCity={setCity} locationData={locationData}/>} exact/>         
-            <Route path="/fertiizers" element={<Fertilizers  t={t} lang={myLang} getLiveLocation={getLiveLocation} city={city} setCity={setCity} locationData={locationData}/>} exact/>         
+            <Route path="/crop-safety" element={<CropSafety handleClick={handleClick} t={t} lang={myLang} />} exact/>            
+            <Route path="/soil-type" element={<SoilType handleClick={handleClick} t={t} lang={myLang} />} exact/>         
+            <Route path="/crop-recommendation" element={<CropRecommendation handleClick={handleClick} t={t} lang={myLang} />} exact/>         
+            <Route path="/soil-quality" element={<SoilQuality handleClick={handleClick} t={t} lang={myLang} />} exact/>         
+            <Route path="/crop-risks" element={<CropRisks handleClick={handleClick} t={t} lang={myLang} />} exact/>         
+            <Route path="/nearest-lab" element={<NearestLab handleClick={handleClick} t={t} lang={myLang} getLiveLocation={getLiveLocation} city={city} setCity={setCity} locationData={locationData}/>} exact/>         
+            <Route path="/nearest-nursery" element={<Nursery handleClick={handleClick} t={t} lang={myLang} getLiveLocation={getLiveLocation} city={city} setCity={setCity} locationData={locationData}/>} exact/>         
+            <Route path="/fertiizers" element={<Fertilizers handleClick={handleClick} t={t} lang={myLang} getLiveLocation={getLiveLocation} city={city} setCity={setCity} locationData={locationData}/>} exact/>         
+            <Route path="/soil-fertilizer" element={<SoilFertilizer handleClick={handleClick} t={t} lang={myLang} getLiveLocation={getLiveLocation} city={city} setCity={setCity} locationData={locationData}/>} exact/>         
           </Route>
           <Route path="/" element={<Home  t={t} lang={myLang} handleClick={handleClick}/>} exact />
           <Route element={<PrivateRouteLog/>}>
@@ -95,6 +103,9 @@ const App = () => {
             <Route path="register" element={<Register  t={t} lang={myLang} />} />
             <Route path="login" element={<Login  t={t} lang={myLang} />} />
             <Route path="reset-password" element={<ResetPass  t={t} lang={myLang} />} />
+            <Route path="reset-password-confirm/:uid/:token" element={<ResetPassConfirm  t={t} lang={myLang} />} />
+            <Route path="email-activation/:uid/:token" element={<EmailActivation  t={t} lang={myLang} />} />
+            <Route path="email" element={<Email  t={t} lang={myLang} />} />
           </Route>
           <Route path="*" element={<NotFound/>} />
         </Routes>

@@ -6,6 +6,7 @@ import imgfeature4 from '../../image/Mask Group 7.webp'
 import imgfeature5 from '../../image/Mask Group 8.webp'
 import imgfeature6 from '../../image/Mask Group 9.webp'
 import imgfeature7 from '../../image/Mask Group 13.webp'
+import imgfeature8 from '../../image/soil.jpeg'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPagelines } from '@fortawesome/free-brands-svg-icons'
@@ -54,6 +55,12 @@ const Features = (props) => {
       text: props.t('fertilizer.text'),
       link: '/fertiizers',
     },
+    {
+      img: imgfeature8,
+      title: props.t('soil-fertilizer.title'),
+      text: props.t('soil-fertilizer.text'),
+      link: '/soil-fertilizer',
+    },
   ]
   return (
     <div
@@ -89,7 +96,7 @@ const Features = (props) => {
             <button
               name="button"
               className="bg-[#17A267] md:ml-0 w-24 h-8 hover:bg-green-400 duration-300 md:mt-5 mt-7 rounded-lg text-white"
-              onClick={() => navigate(feature.link, { replace: true })}
+              onClick={() => {navigate(feature.link, { replace: true }); window.location.reload(true);}}
             >
               {props.t('go.1')}
             </button>

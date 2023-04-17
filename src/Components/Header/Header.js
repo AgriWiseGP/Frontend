@@ -43,7 +43,9 @@ const Header = (props) => {
     <div className="shadow-md sticky w-full top-0 left-0 z-[999]">
       <div className="px-4 py-2 flex items-center justify-between rtl:flex-row-reverse bg-[#F7F2EC] dark:bg-gray-800 w-full">
         <div className="font-bold text-2xl flex items-center text-black dark:text-white">
-          <img src={logo} className="h-10 flex-none" alt="" />
+          <Link to="/">
+            <img src={logo} className="h-10 flex-none" alt="" />
+          </Link>
         </div>
         <div
           onClick={() => setOpen(!open)}
@@ -71,7 +73,10 @@ const Header = (props) => {
                 handleActive(e)
               }}
             >
-              <Link to={link.section} className="link text-gray-800 dark:text-white w-full inline-block p-2 hover:px-4 transition-all duration-500">
+              <Link
+                to={link.section}
+                className="link text-gray-800 dark:text-white w-full inline-block p-2 hover:px-4 transition-all duration-500"
+              >
                 {link.name}
               </Link>
             </li>

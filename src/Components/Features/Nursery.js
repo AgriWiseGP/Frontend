@@ -14,7 +14,7 @@ const Nursery = (props) => {
   }
   return (
     <>
-      <Header t={props.t} ac="features"/>
+      <Header t={props.t} lang={props.lang} ac="features" handleClick={props.handleClick}/>
       <div className="bg-[#F7F2EC] dark:bg-[#111827]">
         <img
           src={nearestNursery}
@@ -74,7 +74,7 @@ const Nursery = (props) => {
                 </button>
               </div>
             </div>
-            <Modal title={props.t('nursery.title')}/>
+            <Modal title={props.t('nursery.title')} content="" t={props.t} lang={props.lang}/>
           </div>
           <img src={imgphone} alt="" className="w-[300px] hidden md:block" />
         </div>

@@ -20,6 +20,7 @@ const Home = (props) => {
       setVisible(false)
     }
   }
+  
   return (
     <div>
       <div className={`bg-[#F7F2EC] dark:bg-[#111827]`} id="home">

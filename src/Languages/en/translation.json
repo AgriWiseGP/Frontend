@@ -78,7 +78,7 @@
     },
     "quality":{
       "title":"Soil Quality",
-      "text":"We help you judge whether the soil is suitable for cultivation or not by analyzing it."
+      "text":"We help you judge whether the soil is suitable for cultivation or not by its analysis."
     },
     "risks":{
       "title":"Crop risks and treatments",
@@ -95,6 +95,10 @@
     "fertilizer":{
       "title":"Fertilizer and treatment",
       "text":"We suggest the nearest nursery to buy fertilizers and treatment for your crop."
+    },
+    "soil-fertilizer":{
+      "title": "Soil fertilizer",
+      "text": "We suggest appropriate fertizers by identifying your location,soil type, air temperature around you and the cultivated crop."
     },
     "go":{
       "1":"Go"
@@ -141,11 +145,23 @@
     "temp":{
       "1":"temperature"
     },
+    "humidity":{
+      "1": "humidity"
+    },
+    "rainfall":{
+      "1": "rainfall"
+    },
     "crop-hint":{
       "1":"Enter current cultivated crop"
     },
     "crop-name":{
       "1":"Crop name"
+    },
+    "soil":{
+      "n": "N - ratio of Nitrogen",
+      "p": "P - ratio of Phosphorus",
+      "k": "K - ratio of Potassium",
+      "ph": "PH - soil acidity"
     },
     "elements":{
       "1":"Enter the proportions of elements"
@@ -161,5 +177,18 @@
     },
     "msg":{
       "1":"Send us a message"
+    },
+    "activation":{
+      "1": "Email activation"
+    },
+    "mail":{
+      "1": "An email with your account confirmation link sent to your email",
+      "2": "Check your email, please"
+    },
+    "done":{
+      "1": "Done"
+    },
+    "activate":{
+      "1": "Activate"
     }
 }
