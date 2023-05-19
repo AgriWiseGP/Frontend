@@ -18,9 +18,12 @@ const Header = (props) => {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const onLogoutSuccess = () => {
-    auth.token
-      ? window.localStorage.setItem('token', false)
-      : navigate('/login-register', { replace: true })
+    if (auth.token) {
+      window.localStorage.setItem('token', false)
+      localStorage.setItem('access_token', '')
+    } else {
+      navigate('/login-register', { replace: true })
+    }
     window.location.reload(true)
   }
   useEffect(() => {

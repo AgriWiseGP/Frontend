@@ -1,22 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from '../Footer/Footer'
-import s4 from '../../image/s4.webp'
-import imgfeature3 from '../../image/lamp.webp'
-import imgphone from '../../image/Environmental study-amico.webp'
+import s4 from '../../image/Mask Group 19.webp'
+import imgfeature3 from '../../image/Mask Group 10.webp'
+import imgphone from '../../image/Group.webp'
 import Modal from './Modal'
 import Header from '../Header/Header'
+import axiosInstance from '../axios'
+
 const SoilType = (props) => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [fileName, setFileName] = useState('');
+  const [fileSize, setFileSize] = useState('');
+  const [res, setRes] = useState("")
+
   const handleChange = (e) => {
-    const [file] = e.target.files
-    console.log(file)
-    const { name, size } = file
-    const fileSize = (size / 1024).toFixed(2)
-    const fileNameSize = `${name} - ${fileSize} KB`
-    if (name !== '') {
-      document.getElementById('info').innerText = fileNameSize
-      document.getElementById('submit').style.display = 'block'
-    }
+    setSelectedFile(e.target.files[0]);
+    setFileName(e.target.files[0].name);
+    setFileSize(e.target.files[0].size);
   }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('image', selectedFile);
+    axiosInstance.post('/soil-type/predict/', formData)
+      .then(response => setRes(response.data.soil_type))
+      .catch(error => console.log(error));}
+      axiosInstance.get('soil-type/details/24/')
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
+      useEffect(()=>{
+        const imgSize = (fileSize / 1024).toFixed(2)
+        const fileNameSize = `${fileName} - ${imgSize} KB`
+        if (fileName !== "") {
+          document.getElementById('info').innerText = fileNameSize
+          document.getElementById('submit').style.display = 'block'
+        }}
+       ,[fileName,fileSize])
   const [hide, setHide] = useState(false)
   return (
     <>
@@ -30,7 +49,7 @@ const SoilType = (props) => {
         <div className="relative h-[270px] sm:h-[400px]">
           <div className="absolute z-30 text-white text-center bg-opacity-50 w-full h-full bg-gray-900 flex justify-center items-center ">
             <h1 className="text-2xl sm:text-4xl text-white font-bold">
-              {props.t('quality.title')}
+              {props.t('classification.title')}
             </h1>
           </div>
         </div>
@@ -45,10 +64,10 @@ const SoilType = (props) => {
           <div className="flex justify-around items-center text-center md:text-left md:rtl:text-right mt-[-40px] pb-[30px]">
             <div>
               <h1 className="md:text-2xl text-xl text-black text-[#17A267] font-bold ">
-                {props.t('quality.title')}
+                {props.t('classification.title')}
               </h1>
               <p className="w-full sm:w-[350px] text-lg text-black dark:text-white p-4 md:px-0">
-                {props.t('quality.text')}
+                {props.t('classification.text')}
               </p>
               <div className="flex justify-center md:justify-start">
                 <div>
@@ -81,11 +100,12 @@ const SoilType = (props) => {
                   type="button"
                   name="submit"
                   id="submit"
+                  onClick={handleSubmit}
                 >
                   {props.t('submit.1')}
                 </button>
               </div>
-              <Modal title={props.t('quality.title')} content="" t={props.t} lang={props.lang}/>
+              <Modal title={props.t('classification.title')} content={`${res}`} t={props.t} lang={props.lang}/>
             </div>
             <img src={imgphone} alt="" className="w-[300px] hidden md:block" />
           </div>

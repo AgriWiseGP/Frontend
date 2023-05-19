@@ -68,6 +68,13 @@
     "features":{
       "1":"Our Features"
     },
+    "soil-type":{
+      "1": "Know your soil type"
+    },
+    "classification":{
+      "title": "Soil classification",
+      "text": "Enter a picture of your soil to help you identify its type."
+    },
     "safety":{
       "title":"Crop Safety",
       "text":"Enter a picture of your crop to help you identify the type of disease and suggest a treatment for it."
@@ -135,6 +142,9 @@
     },
     "cur-location":{
       "1":"Enter current Location"
+    },
+    "loc":{
+      "1" : "Your current location"
     },
     "type":{
       "1":"Soil type"

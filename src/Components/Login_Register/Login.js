@@ -5,7 +5,7 @@ import imag from '../../image/wavy.webp'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock, faEnvelope, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import GoBack from '../GoBack'
-import axios from '../axios'
+import axios from 'axios'
 const Login = (props) => {
   const navigate = useNavigate()
 
@@ -33,16 +33,16 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // window.localStorage.setItem('token',true);
-    axios.post('https://5b49-41-35-222-85.ngrok-free.app/auth/jwt/create',
+    axios.post('https://8e37-156-203-11-225.ngrok-free.app/auth/jwt/create',
       {email, password}
     ).then((response) => {
-      console.log(response)
+      localStorage.setItem("access_token",response.data.access)
       window.localStorage.setItem('token',true);
       window.location.reload(true);
     })
     .catch((error) => {
       console.log(error)
+      setHide(false)
     });
   }
   return (

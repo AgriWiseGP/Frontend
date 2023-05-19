@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faSearch } from '@fortawesome/free-solid-svg-icons'
 import Popup from './Modal'
 import Header from '../Header/Header'
+import { useNavigate } from 'react-router-dom'
 
 const SoilFertilizer = (props) => {
   const [weatherData, setWeatherdata] = useState({
@@ -27,6 +28,7 @@ const SoilFertilizer = (props) => {
   const [crop_name, setCrop] = useState("")
   const [soil_name, setSoil] = useState("")
   const [res, setRes] = useState("")
+  const navigate = useNavigate()
   let apiKey = 'de455523b6c7d57f7708f7dcd5dfa29d'
 
   const handleResponse=(response)=> {
@@ -185,6 +187,7 @@ const SoilFertilizer = (props) => {
                     placeholder={props.t("type.1")}
                   />
                 </div>
+                <span className='px-2 text-green-950 cursor-pointer mt-1 block' onClick={() => navigate('/soil-type', { replace: true })}>{props.t("soil-type.1")}</span>
                 <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
                   <input
                     type="text"
@@ -248,7 +251,7 @@ const SoilFertilizer = (props) => {
                   name="submit"
                   id="submit"
                   disabled={
-                    Nratio === '' || Pratio === '' || Kratio === '' || PH === '' || city === ''
+                    Nratio === '' || Pratio === '' || Kratio === '' || PH === '' || city === '' || rainfall === ''
                       ? true
                       : false
                   }

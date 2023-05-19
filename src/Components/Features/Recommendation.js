@@ -219,7 +219,7 @@ const CropRecommendation = (props) => {
                   name="submit"
                   id="submit"
                   disabled={
-                    n === '' || p === '' || k === '' || ph === '' || city === ''
+                    n === '' || p === '' || k === '' || ph === '' || city === '' || rainfall === ''
                       ? true
                       : false
                   }

@@ -84,12 +84,12 @@ const Footer = (props) => {
               </h3>
               <ul className=" flex flex-col space-y-2 text-black dark:text-white rtl:font-sans">
                 <li className="flex ">
-                  <a href='https://wa.me/+201212681545' className="text-border inline-block w-full">
+                  <a href='https://wa.me/+201212681545' target='_blank' rel='noopener noreferrer' className="text-border inline-block w-full hover:text-green-950 cursor-pointer transition-all duration-500">
                     01010101010
                   </a>
                 </li>
                 <li className="flex ">
-                  <a href='mailto:agriwise5@gmail.com' className="text-border inline-block w-full break-all">
+                  <a href='mailto:agriwise5@gmail.com' className="text-border inline-block w-full break-all hover:text-green-950 cursor-pointer transition-all duration-500">
                     agriwise5@gmail.com
                   </a>
                 </li>
@@ -99,12 +99,9 @@ const Footer = (props) => {
         </div>
 
       </div>
-      <div className="w-full h-16 bg-[#F7F2EC] dark:bg-[#111827] rtl:hidden">
+      <div className="w-full bg-[#F7F2EC] dark:bg-[#111827] rtl:hidden">
         <div className="text-center text-black dark:text-white p-4 font-bold">
           Copyright © 2023 <span className="text-green-950">AgriWise</span>
-          <div className='font-normal'>
-          <a href="https://storyset.com/people">People illustrations by Storyset</a>
-          </div>
         </div>
       </div>
     </div>

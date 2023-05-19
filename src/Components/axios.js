@@ -1,9 +1,9 @@
 import axios from "axios";
 const axiosInstance= axios.create({
-  baseURL: "https://5b49-41-35-222-85.ngrok-free.app/",
+  baseURL: "https://e34f-156-203-11-225.ngrok-free.app",
   headers:{
     Authorization : localStorage.getItem("token")
-    ?'JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyMTEwNTM3LCJqdGkiOiI3NWM0OTRjNjI0OWU0YTNhODA4MDE4OTljMDFiYzU5MSIsInVzZXJfaWQiOjUzfQ.OBPS2fWn2nbpPfGfGhZsl8j1g4PEItQlzzkVPiGn36s' 
+    ? `JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg0MTcxNDEwLCJqdGkiOiJlYzc0ZDU0MTlhMGI0M2QwOTUyNzhhYzc0ZGJjMzg1MSIsInVzZXJfaWQiOjF9.tOJNHVtAqTbKIeppdMoXctLLB7nAo2nKj7rJtZQaVg8`   
     : null
   }
 });

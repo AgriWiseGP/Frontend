@@ -1,22 +1,39 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Footer from '../Footer/Footer'
 import s1 from '../../image/s1.webp'
 import imgfeature1 from '../../image/Mask Group 1.webp'
 import imgphone from '../../image/Group 66.webp'
 import Modal from './Modal'
 import Header from '../Header/Header'
+import axiosInstance from '../axios'
+
 const CropSafety = (props) => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [fileName, setFileName] = useState('');
+  const [fileSize, setFileSize] = useState('');
+  const [res, setRes] = useState("")
+
   const handleChange = (e) => {
-    const [file] = e.target.files
-    console.log(file)
-    const { name, size } = file
-    const fileSize = (size / 1024).toFixed(2)
-    const fileNameSize = `${name} - ${fileSize} KB`
-    if (name !==""){
-        document.getElementById('info').innerText = fileNameSize
-        document.getElementById('submit').style.display = "block"
-    }
+    setSelectedFile(e.target.files[0]);
+    setFileName(e.target.files[0].name);
+    setFileSize(e.target.files[0].size);
   }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('image', selectedFile);
+    axiosInstance.post('/plant-diseases/predict/', formData)
+      .then(response => setRes(response.data.disease))
+      .catch(error => console.log(error));}
+
+      useEffect(()=>{
+        const imgSize = (fileSize / 1024).toFixed(2)
+        const fileNameSize = `${fileName} - ${imgSize} KB`
+        if (fileName !== "") {
+          document.getElementById('info').innerText = fileNameSize
+          document.getElementById('submit').style.display = 'block'
+        }}
+       ,[fileName,fileSize])
   return (
     <>
     <Header t={props.t} lang={props.lang} ac="features" handleClick={props.handleClick}/>
@@ -46,7 +63,7 @@ const CropSafety = (props) => {
             <p className="w-full sm:w-[350px] text-lg text-black dark:text-white p-4 md:px-0">
               {props.t('safety.text')}
             </p>
-            <div className="flex justify-center md:justify-start">
+            <form onSubmit={handleSubmit} className="flex justify-center md:justify-start">
               <div>
               <label
                 htmlFor="file"
@@ -71,14 +88,14 @@ const CropSafety = (props) => {
                 data-modal-target="defaultModal"
                 data-modal-toggle="defaultModal"
                 className="hidden duration-300 text-black dark:text-white focus:outline-none font-medium rounded-lg text-lg h-[43px] hover:dark:text-green-950 hover:text-green-950 text-center"
-                type="button"
+                type="submit"
                 name="submit"
                 id="submit"
               >
                 {props.t("submit.1")}
               </button>
-            </div>
-            <Modal title={props.t("safety.title")} content="" t={props.t} lang={props.lang}/>
+            </form>
+            <Modal title={props.t("safety.title")} content={`${res}`} t={props.t} lang={props.lang}/>
           </div>
           <img
             src={imgphone}

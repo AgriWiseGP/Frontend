@@ -1,39 +1,14 @@
 import React from 'react'
+import Loader from '../Loader/Loader'
 const Popup = (props) => {
   return (
-    //    <Modal
-    //     show={props.visible}
-    //     onClose={()=>props.setVisible(false)}
-    //     className="h-full w-full relative	"
-    //   >
-    //     <div className='top-50 left-50 -translate-x-2/4'>
-    //     <Modal.Header>
-    //       <p className="text-xl font-semibold text-gray-900 dark:text-white rtl:pl-8">
-    //         {props.title}
-    //       </p>
-    //     </Modal.Header>
-    //     <Modal.Body>
-    //     <div className="py-2 space-y-6">
-    //       <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400 text-left rtl:text-right">
-    //         your plant has disease ...
-    //       </p>
-    //     </div>
-    //     </Modal.Body>
-    //     <Modal.Footer>
-    //       <Button onClick={()=>props.setVisible(false)}
-    // className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm dark:bg-green-950 dark:hover:bg-green-700 dark:focus:ring-green-800">
-    //         Done
-    //         </Button>
-    //     </Modal.Footer>
-    //     </div>
-    //   </Modal>
     <div
       id="defaultModal"
       tabIndex="-1"
       aria-hidden="true"
       className="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"
     >
-      <div className="relative w-full max-w-2xl md:h-auto">
+        <div className="relative w-full max-w-2xl md:h-auto">
         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -63,7 +38,7 @@ const Popup = (props) => {
           </div>
           <div className="p-6 space-y-6">
             <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400 text-left rtl:text-right">
-              {props.content}
+              {props.content === "" ? <Loader/> : props.content}
             </p>
           </div>
           <div className="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">

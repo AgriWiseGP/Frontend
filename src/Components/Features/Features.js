@@ -1,4 +1,5 @@
 import React from 'react'
+import imgfeature0 from '../../image/Mask Group 10.webp'
 import imgfeature1 from '../../image/Mask Group 1.webp'
 import imgfeature2 from '../../image/Mask Group 5.webp'
 import imgfeature3 from '../../image/lamp.webp'
@@ -13,6 +14,12 @@ import { faPagelines } from '@fortawesome/free-brands-svg-icons'
 const Features = (props) => {
   const navigate = useNavigate()
   const features = [
+    {
+      img: imgfeature0,
+      title: props.t('classification.title'),
+      text: props.t('classification.text'),
+      link: '/soil-type',
+    },
     {
       img: imgfeature1,
       title: props.t('safety.title'),

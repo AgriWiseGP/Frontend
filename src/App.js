@@ -57,9 +57,9 @@ const App = () => {
   const [locationData, setLocationdata] = useState({
     city: ""  })
   const [city, setCity] = useState("")
-  let apiKey = 'de455523b6c7d57f7708f7dcd5dfa29d'
+  let apiKey = process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY
 
-  function handleResponse(response) {
+  const handleResponse =(response) =>{
     return setLocationdata({
       city: response.data.name,
     },
@@ -67,13 +67,13 @@ const App = () => {
     )
   }
 
-  function showPos(pos) {
+  const showPos=(pos)=> {
     let lat = pos.coords.latitude
     let lon = pos.coords.longitude
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
     axios.get(apiUrl).then(handleResponse)
   }
-  function getLiveLocation() {
+  const getLiveLocation=()=> {
     navigator.geolocation.getCurrentPosition(showPos)
   }
 
