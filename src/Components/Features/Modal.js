@@ -9,7 +9,7 @@ const Popup = (props) => {
       className="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"
     >
         <div className="relative w-full max-w-2xl md:h-auto">
-        <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div className="relative bg-[#F7F2EC] rounded-lg shadow dark:bg-gray-700">
           <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
               {props.title}
@@ -37,9 +37,9 @@ const Popup = (props) => {
             </button>
           </div>
           <div className="p-6 space-y-6">
-            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400 text-left rtl:text-right">
+            <div className="text-base leading-relaxed text-gray-500 dark:text-gray-400 text-left rtl:text-right">
               {props.content === "" ? <Loader/> : props.content}
-            </p>
+            </div>
           </div>
           <div className="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
             <button

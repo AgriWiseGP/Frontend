@@ -25,9 +25,6 @@ const SoilType = (props) => {
     axiosInstance.post('/soil-type/predict/', formData)
       .then(response => setRes(response.data.soil_type))
       .catch(error => console.log(error));}
-      axiosInstance.get('soil-type/details/24/')
-      .then(response => console.log(response))
-      .catch(error => console.log(error));
       useEffect(()=>{
         const imgSize = (fileSize / 1024).toFixed(2)
         const fileNameSize = `${fileName} - ${imgSize} KB`

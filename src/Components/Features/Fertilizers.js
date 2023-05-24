@@ -8,20 +8,21 @@ import Header from '../Header/Header'
 import axios from '../axios'
 import Map from './Map'
 const Fertilizers = (props) => {
-  
+
     const [places, setPlaces] = useState([
-       //{name:'Agricultural Research Center in Alexandria stations', long:"31.219301104815333",lat:'29.97641319882204'},
-       //{name: 'clean_soil lab (معمل تحاليل تربة - واسمدة ومبيدات زراعية ---- ومياه )، Nabel Al Wakad, Badr', lat:" 30.57009577105172",long:" 30.71790905945015"}
+      //  {id:1,name:'Agricultural Research Center in Alexandria stations', long:"31.219301104815333",lat:'29.97641319882204'},
+      //  {id:2,name: 'clean_soil lab (معمل تحاليل تربة - واسمدة ومبيدات زراعية ---- ومياه )، Nabel Al Wakad, Badr', lat:" 30.57009577105172",long:" 30.71790905945015"},
     ]);
     const [nearestPlaces, setNearestPlaces] = useState([]);
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
-  
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       position => {
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
+        console.log(`Latitude: ${position.coords.latitude}`);
       },
       error => console.log(error)
     );
@@ -117,7 +118,7 @@ const Fertilizers = (props) => {
               title={props.t('fertilizer.title')}
               content={
                 nearestPlaces.length !== 0 ?
-                <div>
+                <span>
                   <Map places={places} latitude={latitude} longitude={longitude}/>
                 <ul className='marker:text-green-950 ml-8 list-disc text-black dark:text-white'>
                   {nearestPlaces.map((place) => (
@@ -126,8 +127,8 @@ const Fertilizers = (props) => {
                     </li>
                   ))}
                 </ul>
-                </div> : ""
-                
+                </span> : ""
+
               }
               t={props.t}
               lang={props.lang}
@@ -140,5 +141,4 @@ const Fertilizers = (props) => {
     </>
   )
 }
-
 export default Fertilizers

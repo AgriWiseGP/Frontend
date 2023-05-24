@@ -3,12 +3,9 @@ import { useEffect } from 'react';
 import tt from '@tomtom-international/web-sdk-maps';
 import '@tomtom-international/web-sdk-maps/dist/maps.css';
 
-
 const Map = (props) => {
 
-    useEffect(() => {
-        // tt.setProductInfo('YOUR_PRODUCT_NAME', 'YOUR_PRODUCT_VERSION');
-  
+    useEffect(() => {  
         const map = tt.map({
         key: process.env.REACT_APP_TOMTOM_API_KEY,
         container: 'map',
@@ -23,9 +20,7 @@ const Map = (props) => {
       const popup = new tt.Popup({closeButton: true}).setHTML("Your location");
 
       if (props.latitude && props.longitude) {
-          // Update marker location
         marker.setLngLat([props.longitude, props.latitude]).setPopup(popup).addTo(map);
-          // Center map on marker
       //  map.setCenter([longitude, latitude])
     } else {
         console.log('Geolocation is not supported by your browser');
@@ -33,7 +28,7 @@ const Map = (props) => {
     const markers = [];
     props.places.forEach((place) => {
         markers.push(
-        {position: [place.longitude, place.latitude], title: place.name}
+        {position: [place.long, place.lat], title: place.name}
         )
     });
   
@@ -50,9 +45,7 @@ const Map = (props) => {
       return () => {
         map.remove();
       };
-    }, [props.latitude, props.longitude]);
-
-
+    }, [props.latitude, props.longitude]); 
   
     
   return (
