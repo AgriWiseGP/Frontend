@@ -30,9 +30,17 @@ const Fertilizers = (props) => {
 
   const handleClick = () => {
     if (latitude && longitude) {
-      axios.get('nearest-suppliers/locations/')
-        .then(response => console.log(response))
-        .catch(error => console.log(error));
+      // axios.get('nearest-suppliers/locations/')
+      //   .then(response => console.log(response))
+      //   .catch(error => console.log(error));
+      axios
+      .post('nearest-suppliers/locations/', {})
+      .then((response) => {
+        setPlaces(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     }
   }
 
@@ -46,6 +54,7 @@ const Fertilizers = (props) => {
       distances.sort((a, b) => a.distance - b.distance);
       setNearestPlaces(distances.slice(0, 3));
     }
+    console.log(nearestPlaces);
   }, [latitude, longitude, places]);
 
   const getDistance = (lat1, lon1, lat2, lon2) => {
@@ -119,7 +128,7 @@ const Fertilizers = (props) => {
               content={
                 nearestPlaces.length !== 0 ?
                 <span>
-                  <Map places={places} latitude={latitude} longitude={longitude}/>
+                  <Map places={nearestPlaces} latitude={latitude} longitude={longitude}/>
                 <ul className='marker:text-green-950 ml-8 list-disc text-black dark:text-white'>
                   {nearestPlaces.map((place) => (
                     <li key={place.id}>

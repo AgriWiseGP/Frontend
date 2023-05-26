@@ -33,7 +33,7 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('https://8e37-156-203-11-225.ngrok-free.app/auth/jwt/create',
+    axios.post('https://2d3d-156-203-27-183.ngrok-free.app/auth/jwt/create',
       {email, password}
     ).then((response) => {
       localStorage.setItem("access_token",response.data.access)
