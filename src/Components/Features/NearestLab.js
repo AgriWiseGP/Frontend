@@ -1,17 +1,73 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Footer from '../Footer/Footer'
 import nearestLaboratory from '../../image/lab.webp'
 import imgfeature6 from '../../image/Mask Group 9.webp'
 import imgphone from '../../image/Location tracking.webp'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import Modal from './Modal'
 import Header from '../Header/Header'
+import axios from '../axios'
+import Map from './Map'
 
 const NearestLab = (props) => {
-    function handleSubmit(e) {
-        e.preventDefault()
-      }
+    
+  const [places, setPlaces] = useState([]);
+  const [nearestPlaces, setNearestPlaces] = useState([]);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+
+useEffect(() => {
+  navigator.geolocation.getCurrentPosition(
+    position => {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+      console.log(`Latitude: ${position.coords.latitude}`);
+    },
+    error => console.log(error)
+  );
+}, []);
+
+const handleClick = () => {
+  if (latitude && longitude) {
+    axios
+    .post('nearest/lab/', {})
+    .then((response) => {
+      setPlaces(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+}
+
+useEffect(() => {
+  if (latitude && longitude && places.length > 0) {
+    const distances = places.map(place => {
+      const distance = getDistance(latitude, longitude, place.lat, place.long);
+      return { ...place, distance };
+    });
+    console.log(distances);
+    distances.sort((a, b) => a.distance - b.distance);
+    setNearestPlaces(distances.slice(0, 3));
+  }
+  console.log(nearestPlaces);
+}, [latitude, longitude, places]);
+
+const getDistance = (lat1, lon1, lat2, lon2) => {
+  const R = 6371; // Earth's radius in km
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  const d = R * c; // Distance in km
+  return d;
+};
+
+const toRadians = (degrees) => {
+  return degrees * Math.PI / 180;
+};
+
   return (
     <>
       <Header t={props.t} lang={props.lang} ac="features" handleClick={props.handleClick}/>
@@ -42,24 +98,7 @@ const NearestLab = (props) => {
               {props.t('lab.text')}
             </p>
             <div className="flex justify-center md:justify-start">
-              <div>
-                <div className="p-3 mt-5 w-full bg-gray-100 align-left rounded-lg ltr:text-left lg:w-500 rtl:text-right shadow-lg dark:bg-gray-700">
-                  <FontAwesomeIcon
-                    icon={faLocationDot}
-                    className="text-xl w-100 text-green-950 cursor-pointer hover:text-green-400"
-                    id="locationButton"
-                    onClick={props.getLiveLocation}
-                  />
-                  <input
-                    type="text"
-                    id="location"
-                    required
-                    onChange={(e) => props.setCity(e.target.value)}
-                    value={props.locationData.city || props.city}
-                    className="ltr:pl-5 rtl:pr-5 font-display focus:outline-none text-lg bg-gray-100 h-[28px] w-10/12 caret-green-950 dark:bg-gray-700 dark:placeholder-gray-400 dark:text-white"
-                    placeholder={props.t('cur-location.1')}
-                  />
-                </div>
+            <div>
                 <button
                   data-modal-target="defaultModal"
                   data-modal-toggle="defaultModal"
@@ -67,14 +106,27 @@ const NearestLab = (props) => {
                   type="submit"
                   name="submit"
                   id="submit"
-                  disabled={props.city === '' ? true : false}
-                  onClick={handleSubmit}
+                  disabled={latitude && longitude ? false : true}
+                  onClick={handleClick}
                 >
                   {props.t('go.1')}
                 </button>
               </div>
             </div>
-            <Modal title={props.t('lab.title')} content="" t={props.t} lang={props.lang}/>
+            <Modal title={props.t('lab.title')}  content={
+                nearestPlaces.length !== 0 ?
+                <span>
+                  <Map places={nearestPlaces} latitude={latitude} longitude={longitude}/>
+                <ul className='marker:text-green-950 ml-8 list-disc text-black dark:text-white'>
+                  {nearestPlaces.map((place) => (
+                    <li key={place.id}>
+                      {place.name}
+                    </li>
+                  ))}
+                </ul>
+                </span> : ""
+
+              } t={props.t} lang={props.lang}/>
           </div>
           <img src={imgphone} alt="" className="w-[300px] hidden md:block" />
         </div>

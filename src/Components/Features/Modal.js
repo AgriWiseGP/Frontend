@@ -1,5 +1,6 @@
 import React from 'react'
 import Loader from '../Loader/Loader'
+import { Link } from 'react-router-dom'
 const Popup = (props) => {
   return (
     <div
@@ -48,7 +49,11 @@ const Popup = (props) => {
               name="done"
               className="bg-[#17A267] hover:bg-green-400 text-white focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
-              {props.t("done.1")}
+              <Link
+                to="/#home"
+              >
+                {props.t("done.1")}
+              </Link>
             </button>
           </div>
         </div>

@@ -9,10 +9,7 @@ import axios from '../axios'
 import Map from './Map'
 const Fertilizers = (props) => {
 
-    const [places, setPlaces] = useState([
-      //  {id:1,name:'Agricultural Research Center in Alexandria stations', long:"31.219301104815333",lat:'29.97641319882204'},
-      //  {id:2,name: 'clean_soil lab (معمل تحاليل تربة - واسمدة ومبيدات زراعية ---- ومياه )، Nabel Al Wakad, Badr', lat:" 30.57009577105172",long:" 30.71790905945015"},
-    ]);
+    const [places, setPlaces] = useState([]);
     const [nearestPlaces, setNearestPlaces] = useState([]);
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
@@ -30,11 +27,8 @@ const Fertilizers = (props) => {
 
   const handleClick = () => {
     if (latitude && longitude) {
-      // axios.get('nearest-suppliers/locations/')
-      //   .then(response => console.log(response))
-      //   .catch(error => console.log(error));
       axios
-      .post('nearest-suppliers/locations/', {})
+      .post('nearest/supplier/', {})
       .then((response) => {
         setPlaces(response.data)
       })

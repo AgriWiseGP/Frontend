@@ -44,12 +44,12 @@ const Features = (props) => {
       text: props.t('risks.text'),
       link: '/crop-risks',
     },
-    {
-      img: imgfeature5,
-      title: props.t('nursery.title'),
-      text: props.t('nursery.text'),
-      link: '/nearest-nursery',
-    },
+    // {
+    //   img: imgfeature5,
+    //   title: props.t('nursery.title'),
+    //   text: props.t('nursery.text'),
+    //   link: '/nearest-nursery',
+    // },
     {
       img: imgfeature6,
       title: props.t('lab.title'),
