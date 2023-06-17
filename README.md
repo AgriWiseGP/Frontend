@@ -19,9 +19,36 @@
 - Multilingual website(Arabic & English). 
 - Ability to toggle between dark and light modes.
 
-<h2>🌼Installation</h2>
+<h2>🌼Environment Variables</h2>
 
-- Clone the repository
-- Navigate to the project directory
-- Run npm install to install all dependencies
-- Run npm start to start the project
+To run this project, you will need to add the following environment variables to your .env file
+
+`REACT_APP_OPEN_WEATHER_MAP_API_KEY = Your open weather map API key`
+
+`REACT_APP_TOMTOM_API_KEY = Your tomtom API key`
+
+<h2>🌼Run Locally</h2>
+
+- Clone the project
+
+```bash
+  git clone https://github.com/AgriWiseGP/Frontend
+```
+
+- Go to the project directory
+
+```bash
+  cd Frontend
+```
+
+- Install dependencies
+
+```bash
+  npm install
+```
+
+- Start the server
+
+```bash
+  npm run start
+```
