@@ -1,7 +1,7 @@
 <h1 align='center'>AgriWise Website</h1>
 
 <p align="center">
-  <img src="https://i.postimg.cc/6QBcSX1Q/smartmockups-lhw7i9b6-auto-x2.jpg"  width = 550px alt="agriwise"/>
+  <img src="https://i.postimg.cc/GtZVsmJQ/smartmockups-lhw7i9b6-auto-x2-removebg-preview.png"  width = 750px alt="agriwise"/>
 </p>
 
 <h2>🌼Used technologies</h2>
